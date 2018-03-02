@@ -32,9 +32,6 @@
          "dist/css/bootstrap-theme.css",
          "less/bootstrap.less"
         ]
-      },
-    "jquery": {
-      "main": []
+      }
     }
   }
-}

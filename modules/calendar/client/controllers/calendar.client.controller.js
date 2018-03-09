@@ -91,10 +91,7 @@ Here are the dependency injections for this controller. CalendarService is the s
     vm.update = function (event) {
       event.$update();
     };
-
-    /* add custom event*/
-    vm.addEvent = function () {
-      /*
+/*
       We could just create a new event like the newEvent object below, using fullcalendar
       format. However, this wouldn't allow us to take advantage of Angular.js
       $resource functionality. So instead, we'll create a resource object. You can
@@ -118,11 +115,14 @@ Here are the dependency injections for this controller. CalendarService is the s
       how this is created, which you'll find in /client/services/calendar.client.service.js
       */
 
+    /* add public event*/
+    vm.addPublicEvent = function () {
       var newEvent = new CalendarService({
-        title: 'Coffee Break',
+        permission: "public",
+        title: 'Public event',
         start: vm.selectedDate.local(),
         end: vm.selectedDate.local(),
-        className: ['coffeeBreak'],
+        className: ['publicEvent'],
         stick: true
       });
 
@@ -133,6 +133,22 @@ Here are the dependency injections for this controller. CalendarService is the s
       });
     };
 
+    vm.addPrivateEvent = function () {
+      var newEvent = new CalendarService({
+        permission: req.user._id,
+        title: 'Private event',
+        start: vm.selectedDate.local(),
+        end: vm.selectedDate.local(),
+        className: ['privateEvent'],
+        stick: true
+      });
+
+      newEvent.$save(function (data) {
+        newEvent._id = data._id;
+        vm.calEvents.push(newEvent);
+        vm.setCustomInds(vm.calEvents);
+      });
+    };
 
     vm.selectedDateEvents = function (ev) {
       // returns true if the date of the event matches the selected date.

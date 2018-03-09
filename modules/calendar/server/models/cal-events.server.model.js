@@ -10,6 +10,10 @@ var mongoose = require('mongoose'),
  * CalEvent Schema
  */
 var CalEventSchema = new Schema({
+  permission:{
+    type: String,
+    default: 'public'
+  },
   created: {
     type: Date,
     default: Date.now

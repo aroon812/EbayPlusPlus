@@ -15,8 +15,6 @@ exports.create = function (req, res) {
   var calEvent = new CalEvent(req.body);
   calEvent.user = req.user;
   if (req.body.permission === 'private' && typeof(req.user) !== 'undefined') {
-    
-    console.log('Cunt');
     calEvent.save(function (err) {
       if (err) {
         return res.status(403).send({
@@ -29,7 +27,6 @@ exports.create = function (req, res) {
   }
 
   else if (req.body.permission === 'public') {
-    console.log('Titty');
     calEvent.save(function (err) {
       if (err) {
         return res.status(400).send({
@@ -41,7 +38,6 @@ exports.create = function (req, res) {
     });
   }
   else {
-    console.log('Whore');
     return res.status(400).send({
       message: errorHandler.getErrorMessage(err)
     });

@@ -78,10 +78,8 @@ exports.delete = function (req, res) {
 /**
  * List of events
  */
-//db.calevents.find({user: ObjectId("5a90d22b57519264b4a6b6fb")}).pretty()
-//db.calevents.find({$or: [{user: ObjectId("5a90d22b57519264b4a6b6fb")}, {permission: 'public'}]}).pretty()
 exports.list = function (req, res) {
-  if (typeof(req.user) === "undefined") {
+  if (typeof(req.user) === 'undefined') {
     CalEvent.find({ permission: 'public' }).sort('-created').populate('user', 'displayName').exec(function (err, calEvents) {
       if (err) {
         return res.status(400).send({

@@ -224,7 +224,10 @@ describe('CalEvent CRUD tests', function () {
          var calEventObj = new CalEvent(calEvent);
 
          // Post a private event
-         calEvent.newPrivateEvent;
+         calEvent={
+           title:'Calender Event',
+           permission: 'private'
+         };
 
          //check if user is signed in
          agent.post('/api/auth/signin')

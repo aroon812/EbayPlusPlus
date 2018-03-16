@@ -14,18 +14,39 @@ var path = require('path'),
 exports.create = function (req, res) {
   var calEvent = new CalEvent(req.body);
   calEvent.user = req.user;
+  if (req.body.permission === 'private' && typeof(req.user) !== 'undefined') {
+    
+    console.log('Cunt');
+    calEvent.save(function (err) {
+      if (err) {
+        return res.status(403).send({
+          message: 'Must be logged in to save a private event'
+        });
+      } else {
+        res.json(calEvent);
+      }
+    });
+  }
 
-  calEvent.save(function (err) {
-    if (err) {
-      return res.status(400).send({
-        message: errorHandler.getErrorMessage(err)
-      });
-    } else {
-      res.json(calEvent);
-    }
-  });
+  else if (req.body.permission === 'public') {
+    console.log('Titty');
+    calEvent.save(function (err) {
+      if (err) {
+        return res.status(400).send({
+          message: errorHandler.getErrorMessage(err)
+        });
+      } else {
+        res.json(calEvent);
+      }
+    });
+  }
+  else {
+    console.log('Whore');
+    return res.status(400).send({
+      message: errorHandler.getErrorMessage(err)
+    });
+  }
 };
-
 /**
  * Show the current event
  */

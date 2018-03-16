@@ -78,16 +78,36 @@ exports.delete = function (req, res) {
 /**
  * List of events
  */
+//db.calevents.find({user: ObjectId("5a90d22b57519264b4a6b6fb")}).pretty()
+//db.calevents.find({$or: [{user: ObjectId("5a90d22b57519264b4a6b6fb")}, {permission: 'public'}]}).pretty()
 exports.list = function (req, res) {
-  CalEvent.find().sort('-created').populate('user', 'displayName').exec(function (err, calEvents) {
-    if (err) {
-      return res.status(400).send({
-        message: errorHandler.getErrorMessage(err)
-      });
-    } else {
-      res.json(calEvents);
-    }
-  });
+  console.log(typeof(req.user));
+
+  if (typeof(req.user) === "undefined") {
+    console.log('if');
+    CalEvent.find({ permission: 'public' }).sort('-created').populate('user', 'displayName').exec(function (err, calEvents) {
+      if (err) {
+        return res.status(400).send({
+          message: errorHandler.getErrorMessage(err)
+        });
+      } else {
+        res.json(calEvents);
+      }
+    });
+  }
+  else {
+    console.log('else');
+    CalEvent.find({ $or: [{ user: req.user._id }, { permission: 'public' }] }).sort('-created').populate('user', 'displayName').exec(function (err, calEvents) {
+      if (err) {
+        return res.status(400).send({
+          message: errorHandler.getErrorMessage(err)
+        });
+      }
+      else {
+        res.json(calEvents);
+      }
+    });
+  }
 };
 
 /**

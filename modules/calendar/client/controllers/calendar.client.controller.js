@@ -16,7 +16,6 @@ Here are the dependency injections for this controller. CalendarService is the s
 
     // attach Authentication data to the model. See the view for how vm.authentication is used.
     vm.authentication = Authentication;
-
     /*
     the service returns a $resource object. The .query function queries the database for
     a collection of events. The function here executes when the query completes, and runs the
@@ -117,8 +116,8 @@ Here are the dependency injections for this controller. CalendarService is the s
 
     /* add public event*/
     vm.addPublicEvent = function () {
-      var newEvent = new CalendarService({
-        permission: "public",
+      var newPublicEvent = new CalendarService({
+        permission: 'public',
         title: 'Public event',
         start: vm.selectedDate.local(),
         end: vm.selectedDate.local(),
@@ -126,16 +125,16 @@ Here are the dependency injections for this controller. CalendarService is the s
         stick: true
       });
 
-      newEvent.$save(function (data) {
-        newEvent._id = data._id;
-        vm.calEvents.push(newEvent);
+      newPublicEvent.$save(function (data) {
+        newPublicEvent._id = data._id;
+        vm.calEvents.push(newPublicEvent);
         vm.setCustomInds(vm.calEvents);
       });
     };
 
     vm.addPrivateEvent = function () {
-      var newEvent = new CalendarService({
-        permission: req.user._id,
+      var newPrivateEvent = new CalendarService({
+        permission: 'private',
         title: 'Private event',
         start: vm.selectedDate.local(),
         end: vm.selectedDate.local(),
@@ -143,9 +142,9 @@ Here are the dependency injections for this controller. CalendarService is the s
         stick: true
       });
 
-      newEvent.$save(function (data) {
-        newEvent._id = data._id;
-        vm.calEvents.push(newEvent);
+      newPrivateEvent.$save(function (data) {
+        newPrivateEvent._id = data._id;
+        vm.calEvents.push(newPrivateEvent);
         vm.setCustomInds(vm.calEvents);
       });
     };

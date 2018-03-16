@@ -121,7 +121,7 @@ Here are the dependency injections for this controller. CalendarService is the s
         title: 'Public event',
         start: vm.selectedDate.local(),
         end: vm.selectedDate.local(),
-        className: ['publicEvent'],
+        className: 'publicEvent',
         stick: true
       });
 
@@ -138,7 +138,7 @@ Here are the dependency injections for this controller. CalendarService is the s
         title: 'Private event',
         start: vm.selectedDate.local(),
         end: vm.selectedDate.local(),
-        className: ['privateEvent'],
+        className: 'privateEvent',
         stick: true
       });
 

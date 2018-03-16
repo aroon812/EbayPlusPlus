@@ -5,3 +5,16 @@ td.select-highlight {
 input.eventtext {
   width: 140px
 }
+
+.privateEvent {
+  background: red
+}
+.publicEvent {
+  background: green
+}
+.privateEvent {
+  border: red
+}
+.publicEvent {
+  border: green
+}

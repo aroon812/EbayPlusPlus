@@ -102,24 +102,10 @@ describe('CalEvent CRUD tests', function () {
       });
   });
 
-// Remove this test case and uncomment the two cases commented out below.
 // Both tests are fully written and do not need to be modified.
 // The first will succeed and the second should fail when gulp test is run,
 // and succeed when the functionality has been correctly implemented.
-  it('should be able to save a calendar event if not logged in', function (done) {
-    agent.post('/api/calendar')
-      .send(calEvent)
-      .expect(200)
-      .end(function (calEventSaveErr, calEventSaveRes) {
-        // Call the assertion callback
-        if (calEventSaveErr) {
-          return done(calEventSaveErr);
-        }
-        done();
-      });
-  });
 
-/*
   it('should be able to save a public calendar event if not logged in', function (done) {
     calEvent.public = true;
     agent.post('/api/calendar')
@@ -147,7 +133,6 @@ describe('CalEvent CRUD tests', function () {
         done(calEventSaveErr);
       });
   });
-*/
 
   it('should not be able to save a calendar event if no title is provided', function (done) {
     // Invalidate title field

@@ -218,11 +218,40 @@ describe('CalEvent CRUD tests', function () {
 
 
 // More tests for private/public event handling
-/*
+
     it('should be able to get a list of private calendar events if logged in', function (done) {
+      // Create new calendar event
+         var calEventObj = new CalEvent(calEvent);
 
-    });
+         // Post a private event
+         calEvent.newPrivateEvent;
 
+         //check if user is signed in
+         agent.post('/api/auth/signin')
+           .send(credentials)
+           .expect(200)
+           .end(function (signinErr, signinRes) {
+             // Handle signin error
+             if (signinErr) {
+               return done(signinErr);
+             }
+
+             var userId = user.id;
+
+             // Save the calendar event
+             calEventObj.save(function () {
+               request(app).get('/api/calendar')
+               .end(function (req, res) {
+               // Set assertions
+                 res.body.should.be.instanceof(Array).and.have.lengthOf(1);
+               // Call the assertion callback
+                 done();
+               });
+             });
+           });
+       });
+
+/*
     it('should not be able to get a list of private calendar events if not logged in', function (done) {
 
     });

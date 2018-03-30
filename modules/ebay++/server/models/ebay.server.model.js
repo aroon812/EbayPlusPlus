@@ -10,23 +10,28 @@ var mongoose = require('mongoose'),
   chalk = require('chalk');
 
 /**
- * Article Schema
+ * Item Schema
  */
-var ArticleSchema = new Schema({
+var ItemSchema = new Schema({
   created: {
     type: Date,
     default: Date.now
   },
-  title: {
+  itemDetails: {
     type: String,
     default: '',
     trim: true,
-    required: 'Title cannot be blank'
+    required: 'Item cannot have no description'
   },
-  content: {
-    type: String,
+  bidPrice: {
+    type: Number,
     default: '',
-    trim: true
+    trim: true,
+    required: 'Must set a bid price'
+  },
+  buyPrice: {
+    type: Number,
+    default: ''
   },
   user: {
     type: Schema.ObjectId,
@@ -34,16 +39,16 @@ var ArticleSchema = new Schema({
   }
 });
 
-ArticleSchema.statics.seed = seed;
+ItemSchema.statics.seed = seed;
 
-mongoose.model('Article', ArticleSchema);
+mongoose.model('Item', ItemSchema);
 
 /**
-* Seeds the User collection with document (Article)
+* Seeds the User collection with document (Item)
 * and provided options.
 */
 function seed(doc, options) {
-  var Article = mongoose.model('Article');
+  var Item = mongoose.model('Item');
 
   return new Promise(function (resolve, reject) {
 
@@ -83,7 +88,7 @@ function seed(doc, options) {
 
     function skipDocument() {
       return new Promise(function (resolve, reject) {
-        Article
+        Item
           .findOne({
             title: doc.title
           })
@@ -117,19 +122,19 @@ function seed(doc, options) {
       return new Promise(function (resolve, reject) {
         if (skip) {
           return resolve({
-            message: chalk.yellow('Database Seeding: Article\t' + doc.title + ' skipped')
+            message: chalk.yellow('Database Seeding: Item\t' + doc.title + ' skipped')
           });
         }
 
-        var article = new Article(doc);
+        var item = new Item(doc);
 
-        article.save(function (err) {
+        Item.save(function (err) {
           if (err) {
             return reject(err);
           }
 
           return resolve({
-            message: 'Database Seeding: Article\t' + article.title + ' added'
+            message: 'Database Seeding: Iteme\t' + item.title + ' added'
           });
         });
       });

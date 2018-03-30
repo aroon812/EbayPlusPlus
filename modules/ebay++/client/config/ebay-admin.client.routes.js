@@ -2,65 +2,65 @@
   'use strict';
 
   angular
-    .module('articles.admin.routes')
+    .module('items.admin.routes')
     .config(routeConfig);
 
   routeConfig.$inject = ['$stateProvider'];
 
   function routeConfig($stateProvider) {
     $stateProvider
-      .state('admin.articles', {
+      .state('admin.items', {
         abstract: true,
-        url: '/articles',
+        url: '/items',
         template: '<ui-view/>'
       })
-      .state('admin.articles.list', {
+      .state('admin.items.list', {
         url: '',
-        templateUrl: '/modules/articles/client/views/admin/list-articles.client.view.html',
-        controller: 'ArticlesAdminListController',
+        templateUrl: '/modules/ebay++/client/views/admin/list-items.client.view.html',
+        controller: 'ItemsAdminListController',
         controllerAs: 'vm',
         data: {
           roles: ['admin']
         }
       })
-      .state('admin.articles.create', {
+      .state('admin.Items.create', {
         url: '/create',
-        templateUrl: '/modules/articles/client/views/admin/form-article.client.view.html',
-        controller: 'ArticlesAdminController',
+        templateUrl: '/modules/ebay++/client/views/admin/form-item.client.view.html',
+        controller: 'ItemsAdminController',
         controllerAs: 'vm',
         data: {
           roles: ['admin']
         },
         resolve: {
-          articleResolve: newArticle
+          itemResolve: newItem
         }
       })
-      .state('admin.articles.edit', {
-        url: '/:articleId/edit',
-        templateUrl: '/modules/articles/client/views/admin/form-article.client.view.html',
-        controller: 'ArticlesAdminController',
+      .state('admin.items.edit', {
+        url: '/:itemId/edit',
+        templateUrl: '/modules/ebay++/client/views/admin/form-item.client.view.html',
+        controller: 'ItemsAdminController',
         controllerAs: 'vm',
         data: {
           roles: ['admin'],
-          pageTitle: '{{ articleResolve.title }}'
+          pageTitle: '{{ itemResolve.title }}'
         },
         resolve: {
-          articleResolve: getArticle
+          itemResolve: getItem
         }
       });
   }
 
-  getArticle.$inject = ['$stateParams', 'ArticlesService'];
+  getItem.$inject = ['$stateParams', 'ItemsService'];
 
-  function getArticle($stateParams, ArticlesService) {
-    return ArticlesService.get({
-      articleId: $stateParams.articleId
+  function getArticle($stateParams, ItemsService) {
+    return ItemsService.get({
+      itemId: $stateParams.itemId
     }).$promise;
   }
 
-  newArticle.$inject = ['ArticlesService'];
+  newItem.$inject = ['ItemsService'];
 
-  function newArticle(ArticlesService) {
-    return new ArticlesService();
+  function newAItem(ItemsService) {
+    return new ItemsService();
   }
 }());

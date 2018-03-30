@@ -2,43 +2,43 @@
   'use strict';
 
   angular
-    .module('articles.routes')
+    .module('items.routes')
     .config(routeConfig);
 
   routeConfig.$inject = ['$stateProvider'];
 
   function routeConfig($stateProvider) {
     $stateProvider
-      .state('articles', {
+      .state('items', {
         abstract: true,
-        url: '/articles',
+        url: '/items',
         template: '<ui-view/>'
       })
-      .state('articles.list', {
+      .state('items.list', {
         url: '',
-        templateUrl: '/modules/articles/client/views/list-articles.client.view.html',
-        controller: 'ArticlesListController',
+        templateUrl: '/modules/ebay++/client/views/list-articles.client.view.html',
+        controller: 'ItemsListController',
         controllerAs: 'vm'
       })
-      .state('articles.view', {
-        url: '/:articleId',
-        templateUrl: '/modules/articles/client/views/view-article.client.view.html',
-        controller: 'ArticlesController',
+      .state('items.view', {
+        url: '/:itemId',
+        templateUrl: '/modules/ebay++/client/views/view-article.client.view.html',
+        controller: 'ItemsController',
         controllerAs: 'vm',
         resolve: {
-          articleResolve: getArticle
+          itemResolve: getItem
         },
         data: {
-          pageTitle: '{{ articleResolve.title }}'
+          pageTitle: '{{ itemResolve.title }}'
         }
       });
   }
 
-  getArticle.$inject = ['$stateParams', 'ArticlesService'];
+  getItem.$inject = ['$stateParams', 'ItemsService'];
 
-  function getArticle($stateParams, ArticlesService) {
-    return ArticlesService.get({
-      articleId: $stateParams.articleId
+  function getItem($stateParams, ItemsService) {
+    return ItemsService.get({
+      itemId: $stateParams.itemId
     }).$promise;
   }
 }());

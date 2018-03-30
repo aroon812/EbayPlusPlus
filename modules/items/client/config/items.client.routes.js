@@ -16,13 +16,13 @@
       })
       .state('items.list', {
         url: '',
-        templateUrl: '/modules/ebay++/client/views/list-articles.client.view.html',
+        templateUrl: '/modules/items/client/views/list-items.client.view.html',
         controller: 'ItemsListController',
         controllerAs: 'vm'
       })
       .state('items.view', {
         url: '/:itemId',
-        templateUrl: '/modules/ebay++/client/views/view-article.client.view.html',
+        templateUrl: '/modules/items/client/views/view-item.client.view.html',
         controller: 'ItemsController',
         controllerAs: 'vm',
         resolve: {

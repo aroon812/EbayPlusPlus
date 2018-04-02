@@ -8,7 +8,7 @@
   ItemsService.$inject = ['$resource', '$log'];
 
   function ItemsService($resource, $log) {
-    var Item = $resource('/api/articles/:articleId', {
+    var Item = $resource('/api/items/:itemId', {
       itemId: '@_id'
     }, {
       update: {

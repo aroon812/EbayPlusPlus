@@ -52,7 +52,7 @@
 
   getItem.$inject = ['$stateParams', 'ItemsService'];
 
-  function getArticle($stateParams, ItemsService) {
+  function getItem($stateParams, ItemsService) {
     return ItemsService.get({
       itemId: $stateParams.itemId
     }).$promise;
@@ -60,7 +60,7 @@
 
   newItem.$inject = ['ItemsService'];
 
-  function newAItem(ItemsService) {
+  function newItem(ItemsService) {
     return new ItemsService();
   }
 }());

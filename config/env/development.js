@@ -100,7 +100,7 @@ module.exports = {
         }
       }]
     }, {
-      model: 'Article',
+      model: 'Item',
       options: {
         // Override log results setting at the
         // collection level.
@@ -113,7 +113,9 @@ module.exports = {
       },
       docs: [{
         data: {
-          title: 'First Article',
+          itemDetails: 'test item',
+          bidPrice: 20,
+          buyPrice: 30,
           content: 'This is a seeded Article for the development environment'
         }
       }]

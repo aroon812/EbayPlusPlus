@@ -36,6 +36,10 @@ var ItemSchema = new Schema({
   user: {
     type: Schema.ObjectId,
     ref: 'User'
+  },
+  img: { 
+    data: Buffer, 
+    contentType: String 
   }
 });
 

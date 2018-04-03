@@ -16,16 +16,16 @@
       })
       .state('admin.items.list', {
         url: '',
-        templateUrl: '/modules/item/client/views/admin/list-items.client.view.html',
+        templateUrl: '/modules/items/client/views/admin/list-items.client.view.html',
         controller: 'ItemsAdminListController',
         controllerAs: 'vm',
         data: {
           roles: ['admin']
         }
       })
-      .state('admin.Items.create', {
+      .state('admin.items.create', {
         url: '/create',
-        templateUrl: '/modules/item/client/views/admin/form-item.client.view.html',
+        templateUrl: '/modules/items/client/views/admin/form-item.client.view.html',
         controller: 'ItemsAdminController',
         controllerAs: 'vm',
         data: {
@@ -37,7 +37,7 @@
       })
       .state('admin.items.edit', {
         url: '/:itemId/edit',
-        templateUrl: '/modules/item/client/views/admin/form-item.client.view.html',
+        templateUrl: '/modules/items/client/views/admin/form-item.client.view.html',
         controller: 'ItemsAdminController',
         controllerAs: 'vm',
         data: {

@@ -10,7 +10,7 @@
   function ItemsAdminController($scope, $state, $window, item, Authentication, Notification) {
     var vm = this;
 
-    vm.article = item;
+    vm.item = item;
     vm.authentication = Authentication;
     vm.form = {};
     vm.remove = remove;
@@ -34,7 +34,7 @@
       }
 
       // Create a new article, or update the current instance
-      vm.article.createOrUpdate()
+      vm.item.createOrUpdate()
         .then(successCallback)
         .catch(errorCallback);
 

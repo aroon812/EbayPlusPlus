@@ -38,7 +38,7 @@
       }
 
       // Handle error response
-      function onError(item) {
+      function onError(errorResponse) {
         var error = errorResponse.data;
         // Handle error internally
         handleError(error);

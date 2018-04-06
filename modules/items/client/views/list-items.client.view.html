@@ -6,7 +6,7 @@
     <label for="filter">Search</label>
     <input id="filter" type="text", name="filter", ng-model="textFilter">
     <div class="error">{{ vm.message }}</div>
-    <a ng-repeat="article in vm.items" ui-sref="items.view({ itemId: item._id })" class="list-group-item">
+    <a ng-repeat="item in vm.items" ui-sref="items.view({ itemId: item._id })" class="list-group-item">
       <small class="list-group-item-text">
         Posted on
         <span ng-bind="item.created | date:'mediumDate'"></span>

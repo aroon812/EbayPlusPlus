@@ -11,9 +11,9 @@
     <form name="vm.form.itemForm" class="form-horizontal" ng-submit="vm.save(vm.form.itemForm.$valid)" novalidate>
       <fieldset>
         <div class="form-group" show-errors>
-          <label class="control-label" for="title">Title</label>
-          <input name="title" type="text" ng-model="vm.item.title" id="title" class="form-control" placeholder="Title" required autofocus>
-          <div ng-messages="vm.form.itemForm.title.$error" role="alert">
+          <label class="control-label" for="itemName">Item Name</label>
+          <input name="itemName" type="text" ng-model="vm.item.itemName" id="Item Name" class="form-control" placeholder="Item Name" required autofocus>
+          <div ng-messages="vm.form.itemForm.itemName.$error" role="alert">
             <p class="help-block error-text" ng-message="required">Item title is required.</p>
           </div>
         </div>

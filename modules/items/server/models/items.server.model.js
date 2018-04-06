@@ -17,11 +17,11 @@ var ItemSchema = new Schema({
     type: Date,
     default: Date.now
   },
-  itemDetails: {
+  itemName: {
     type: String,
     default: '',
     trim: true,
-    required: 'Item cannot have no description'
+    required: 'What is your item'
   },
   bidPrice: {
     type: Number,
@@ -32,6 +32,12 @@ var ItemSchema = new Schema({
   buyPrice: {
     type: Number,
     default: ''
+  },
+  itemDetails: {
+    type: String,
+    default: '',
+    trim: true,
+    required: 'Item cannot have no description'
   },
   user: {
     type: Schema.ObjectId,

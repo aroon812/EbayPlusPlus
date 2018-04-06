@@ -29,7 +29,7 @@
           itemResolve: getItem
         },
         data: {
-          pageTitle: '{{ itemResolve.title }}'
+          pageTitle: '{{ itemResolve.itemName }}'
         }
       });
   }

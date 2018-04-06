@@ -105,11 +105,14 @@ module.exports = {
         }
       }]
     }, {
-      model: 'Article',
+      model: 'Item',
       docs: [{
         overwrite: true,
         data: {
-          title: 'Test Article',
+          itemName: 'Imagine',
+          itemDetails: 'Imagine Harder',
+          bidPrice: 20,
+          buyPrice: 30,
           content: 'Code coverage test article!'
         }
       }]

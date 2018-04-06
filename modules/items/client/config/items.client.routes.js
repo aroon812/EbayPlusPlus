@@ -31,6 +31,12 @@
         data: {
           pageTitle: '{{ itemResolve.itemName }}'
         }
+      })
+      .state('items.view.bid', {
+        url: '/bid',
+        templateUrl: '/modules/items/client/views/bidView.html',
+        controller: 'ItemsBidController',
+        controllerAs: 'vm'
       });
   }
 

@@ -2,6 +2,7 @@
   <div class="page-header">
     <h1 ng-bind="vm.item.title"></h1>
   </div>
+
   <small>
     <em class="text-muted">
       Posted on
@@ -11,5 +12,22 @@
       <span ng-if="!vm.item.user">Deleted User</span>
     </em>
   </small>
+
+  <div id= 'itemPageInfo'>
+    <label class="itemLabel" for="itemPageInfo">Description</label>
+    <div ng-bind="vm.item.itemDetails"></div>
+    <label class="itemLabel" for="itemPageInfo">Bid Price</label>
+    <div ng-bind="vm.item.bidPrice"></div>
+
+   
+
+    <label class="itemLabel" for="itemPageInfo">Buy Price</label>
+    <div ng-bind="vm.item.buyPrice"></div>
+    <div>
+        <button type="button" class="btn btn-default">Buy It Now</button>
+      </div>
+  </div>
+  
+
   <p class="lead" ng-bind="vm.item.content"></p>
 </section>

@@ -3,11 +3,11 @@
   
     angular
       .module('items')
-      .controller('ItemsBidController', ItemsBidController);
+      .controller('ItemsPurchaseController', ItemsPurchaseController);
   
-    ItemsBidController.$inject = ['$scope', '$state', '$window', 'itemResolve', 'Authentication', 'Notification'];
+      ItemsPurchaseController.$inject = ['$scope', '$state', '$window', 'itemResolve', 'Authentication', 'Notification'];
   
-    function ItemsBidController($scope, $state, $window, item, Authentication, Notification) {
+    function ItemsPurchaseController($scope, $state, $window, item, Authentication, Notification) {
       var vm = this;
   
       vm.item = item;

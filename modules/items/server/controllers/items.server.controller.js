@@ -50,6 +50,7 @@ exports.update = function (req, res) {
   item.bidPrice = req.body.bidPrice;
   item.buyPrice = req.body.buyPrice;
   item.itemDetails = req.body.itemDetails;
+  item.lastBid = req.user;
 
   item.save(function (err) {
     if (err) {

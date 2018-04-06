@@ -9,7 +9,6 @@
     &nbsp;
     <a ng-repeat="item in vm.items | filter: textFilter" ui-sref="items.view({ itemId: item._id })" class="list-group-item">
       <small class="list-group-item-text">
-        Item:
         <span ng-bind="item.itemName"></span>
         &nbsp;
         Buy Price:

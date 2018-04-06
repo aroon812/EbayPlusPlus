@@ -47,7 +47,9 @@ exports.update = function (req, res) {
   var item = req.item;
 
   item.itemName = req.body.itemName;
-  item.content = req.body.content;
+  item.bidPrice = req.body.bidPrice;
+  item.buyPrice = req.body.buyPrice;
+  item.itemDetails = req.body.itemDetails;
 
   item.save(function (err) {
     if (err) {

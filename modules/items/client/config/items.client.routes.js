@@ -32,14 +32,21 @@
           pageTitle: '{{ itemResolve.itemName }}'
         }
       })
-      .state('items.view.bid', {
-        url: '/bid',
-        templateUrl: '/modules/items/client/views/bidView.html',
+      .state('items.bid', {
+        url: '/:itemId/bid',
+        templateUrl: '/modules/items/client/views/bid-view.html',
         controller: 'ItemsBidController',
-        controllerAs: 'vm'
+        controllerAs: 'vm',
+        data: {
+          roles: ['admin'],
+          pageTitle: '{{ itemResolve.itemName }}'
+        },
+        resolve: {
+          itemResolve: getItem
+        }
       });
   }
-
+  
   getItem.$inject = ['$stateParams', 'ItemsService'];
 
   function getItem($stateParams, ItemsService) {

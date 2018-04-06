@@ -42,7 +42,7 @@
         controllerAs: 'vm',
         data: {
           roles: ['admin'],
-          pageTitle: '{{ itemResolve.title }}'
+          pageTitle: '{{ itemResolve.itemName }}'
         },
         resolve: {
           itemResolve: getItem

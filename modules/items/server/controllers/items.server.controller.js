@@ -46,7 +46,7 @@ exports.read = function (req, res) {
 exports.update = function (req, res) {
   var item = req.item;
 
-  item.title = req.body.title;
+  item.itemName = req.body.itemName;
   item.content = req.body.content;
 
   item.save(function (err) {

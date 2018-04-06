@@ -6,20 +6,19 @@
     <label for="filter">Search</label>
     <input id="filter" type="text", name="filter", ng-model="textFilter">
     <div class="error">{{ vm.message }}</div>
-    <a ng-repeat="item in vm.items" ui-sref="items.view({ itemId: item._id })" class="list-group-item">
+    &nbsp;
+    <a ng-repeat="item in vm.items | filter: textFilter" ui-sref="items.view({ itemId: item._id })" class="list-group-item">
       <small class="list-group-item-text">
         Item:
         <span ng-bind="item.itemName"></span>
         &nbsp;
         Buy Price:
-        <span ng-bind="item.buyPrice"></span>
+        <span ng-bind="item.buyPrice | currency"></span>
         &nbsp;
         Bid Price:
-        <span ng-bind="item.bidPrice"></span>
+        <span ng-bind="item.bidPrice | currency"></span>
         &nbsp;
       </small>
-      <h4 class="list-group-item-heading" ng-bind="item.title"></h4>
-      <p class="list-group-item-text" ng-bind="item.content"></p>
     </a>
   </div>
 </section>

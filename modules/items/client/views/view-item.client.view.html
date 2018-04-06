@@ -18,16 +18,16 @@
     <div ng-bind="vm.item.itemDetails"></div>
     <label class="itemLabel" for="itemPageInfo">Bid Price</label>
     <div ng-bind="vm.item.bidPrice"></div>
-
-   
-
+    <div>
+      <a href="/items/{{ vm.item._id }}/bid" class="button">
+        <input type="submit" value="Place Bid"/>
+      </a>
+    </div>
     <label class="itemLabel" for="itemPageInfo">Buy Price</label>
     <div ng-bind="vm.item.buyPrice"></div>
     <div>
-        <button type="button" class="btn btn-default">Place Bid</button>
-      </div>
-  </div>
-  
-
-  <p class="lead" ng-bind="vm.item.content"></p>
+      <a href="/items/{{ vm.item._id }}/buy" class="button">
+        <input type="submit" value="Buy It Now"/>
+      </a>
+    </div>
 </section>

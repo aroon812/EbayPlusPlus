@@ -1,12 +1,7 @@
 <section>
-        <div class="page-header">
-          <h1>{{vm.item._id ? 'Edit Item' : 'New Item'}}</h1>
-        </div>
-        <div class="pull-right">
-          <a ng-show="vm.item._id" class="btn btn-primary" ng-click="vm.remove()">
-            <i class="glyphicon glyphicon-trash"></i>
-          </a>
-        </div>
+  <div class="page-header">
+    <h1 ng-bind="vm.item.itemName"></h1>
+  </div>
         <div class="col-md-12">
           <form name="vm.form.itemForm" class="form-horizontal" ng-submit="vm.save(vm.form.itemForm.$valid)" novalidate>
             <fieldset>

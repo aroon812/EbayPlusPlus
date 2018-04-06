@@ -46,8 +46,11 @@ exports.read = function (req, res) {
 exports.update = function (req, res) {
   var item = req.item;
 
-  item.title = req.body.title;
-  item.content = req.body.content;
+  item.itemName = req.body.itemName;
+  item.bidPrice = req.body.bidPrice;
+  item.buyPrice = req.body.buyPrice;
+  item.itemDetails = req.body.itemDetails;
+  item.lastBid = req.user;
 
   item.save(function (err) {
     if (err) {

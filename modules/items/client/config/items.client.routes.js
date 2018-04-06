@@ -35,7 +35,20 @@
       .state('items.bid', {
         url: '/:itemId/bid',
         templateUrl: '/modules/items/client/views/bid-view.html',
-        controller: 'ItemsBidController',
+        controller: 'ItemsPurchaseController',
+        controllerAs: 'vm',
+        data: {
+          roles: ['admin'],
+          pageTitle: '{{ itemResolve.itemName }}'
+        },
+        resolve: {
+          itemResolve: getItem
+        }
+      })
+      .state('items.buy', {
+        url: '/:itemId/buy',
+        templateUrl: '/modules/items/client/views/buy-view.html',
+        controller: 'ItemsPurchaseController',
         controllerAs: 'vm',
         data: {
           roles: ['admin'],

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,6 +24,12 @@
 header {background: black;color:white;}
 footer {background: #aaa;color:white;}
 .nav {background:#eee;}
+=======
+<section>
+  <div class="page-header">
+    <h1 ng-bind="vm.item.itemName"></h1>
+  </div>
+>>>>>>> 4185ba308347c8a75f2e8a53953445b9c2daea78
 
 .nav ul {
     list-style-type: none;
@@ -48,15 +55,18 @@ footer {background: #aaa;color:white;}
 
   <div id= 'itemPageInfo'>
     <label class="itemLabel" for="itemPageInfo">Description</label>
-    <div ng-bind="vm.item.itemDetails"></div>
+      <div ng-bind="vm.item.itemDetails"></div>
     <label class="itemLabel" for="itemPageInfo">Bid Price</label>
-    <div ng-bind="vm.item.bidPrice"></div>
-
-   
-
-    <label class="itemLabel" for="itemPageInfo">Buy Price</label>
-    <div ng-bind="vm.item.buyPrice"></div>
+      <div ng-bind="vm.item.bidPrice | currency"></div>
     <div>
+      <a href="/items/{{ vm.item._id }}/bid" class="button">
+        <input type="submit" value="Place Bid"/>
+      </a>
+    </div>
+    <label class="itemLabel" for="itemPageInfo">Buy Price</label>
+      <div ng-bind="vm.item.buyPrice | currency"></div>
+    <div>
+<<<<<<< HEAD
         <button type="button" class="btn btn-default">Buy It Now</button>
       </div>
   </div>
@@ -66,3 +76,10 @@ footer {background: #aaa;color:white;}
 
 </body>
 </html>
+=======
+      <a href="/items/{{ vm.item._id }}/buy" class="button">
+        <input type="submit" value="Buy It Now"/>
+      </a>
+    </div>
+</section>
+>>>>>>> 4185ba308347c8a75f2e8a53953445b9c2daea78

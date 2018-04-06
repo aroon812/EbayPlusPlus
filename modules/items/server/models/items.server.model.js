@@ -39,6 +39,10 @@ var ItemSchema = new Schema({
     trim: true,
     required: 'Item cannot have no description'
   },
+  lastBid: {
+    type: Schema.ObjectId,
+    ref: 'User'
+  },
   user: {
     type: Schema.ObjectId,
     ref: 'User'

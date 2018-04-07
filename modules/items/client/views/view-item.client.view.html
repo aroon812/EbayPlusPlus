@@ -44,6 +44,11 @@ footer {background: #aaa;color:white;}
 <div class="flex-container">
 <header>
   <h1 ng-bind="vm.item.title"></h1>
+  <div align= "right">
+  <a href="/items/{{ vm.item._id }}/bid" class="button pull-right">
+    <input type="submit" value="Place Bid"/>
+  </a>
+  </div>
 </header>
 
   <div id= 'itemPageInfo'>
@@ -51,11 +56,6 @@ footer {background: #aaa;color:white;}
       <div ng-bind="vm.item.itemDetails"></div>
     <label class="itemLabel" for="itemPageInfo">Bid Price</label>
       <div ng-bind="vm.item.bidPrice | currency"></div>
-    <div>
-      <a href="/items/{{ vm.item._id }}/bid" class="button">
-        <input type="submit" value="Place Bid"/>
-      </a>
-    </div>
     <label class="itemLabel" for="itemPageInfo">Buy Price</label>
       <div ng-bind="vm.item.buyPrice | currency"></div>
     <div>

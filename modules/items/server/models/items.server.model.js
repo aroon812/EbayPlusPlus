@@ -39,7 +39,7 @@ var ItemSchema = new Schema({
     trim: true,
     required: 'Item cannot have no description'
   },
-  exDate: {
+  removalDate: {
     type: Date,
     default: Date.now
   },

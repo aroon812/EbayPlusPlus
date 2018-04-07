@@ -5,8 +5,10 @@ Notes:
 
 
 Breakdown:
-1. Aaron Thomson:
-    - 
+1. Aaron Thompson:
+    - Created the controller for bid/buy functionality
+    - Created the initial skeleton ui for the item 
+    - Made the add item form match the add item schema
 2. Jared Polonitza:
     - 
 3. Braden Ash:

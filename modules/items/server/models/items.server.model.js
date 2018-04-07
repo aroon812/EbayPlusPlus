@@ -41,7 +41,8 @@ var ItemSchema = new Schema({
   },
   removalDate: {
     type: Date,
-    default: Date.now
+    default: Date.now,
+    required: 'Item needs removal date'
   },
   lastBid: {
     type: Schema.ObjectId,

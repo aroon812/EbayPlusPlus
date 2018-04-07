@@ -7,14 +7,15 @@ Notes:
 Breakdown:
 1. Aaron Thompson:
     - Created the controller for bid/buy functionality
-    - Created the initial skeleton ui for the item 
+    - Created the initial skeleton ui for the item
     - Made the add item form match the add item schema
 2. Jared Polonitza:
-    - 
+    -A lot
 3. Braden Ash:
-    - 
+    -
 4. Skye Guegan:
-    - 
+    - Added a removal date to the item list page and single item page
+    - When adding a new item added a cool calendar thing
 5. Lukas Jimenez-Smith
     - Update README
     - Item Framewok in HTML with picture
@@ -23,7 +24,7 @@ Breakdown:
 Iteration 1.0: https://pacific-dawn-56409.herokuapp.com/
 
 Notes:
-Querying a database using mongodb is a little less straightforward than SQL unfortunately. Some of the logic for checking whether a user is logged in or not is tricky and fun to mess with. - Jared Polonitza 
+Querying a database using mongodb is a little less straightforward than SQL unfortunately. Some of the logic for checking whether a user is logged in or not is tricky and fun to mess with. - Jared Polonitza
 
 Breakdown:
 1. Aaron Thomson:
@@ -36,7 +37,7 @@ Breakdown:
     - Create a 403 response for improper creditials when creating a private event
     - Modify CSS
 4. Skye Guegan:
-    - Test case on line 223 
+    - Test case on line 223
     - Test case on line 227
 5. Lukas Jimenez-Smith
     - Test case on line 231
@@ -49,5 +50,3 @@ Group Members:
 3. Lukas Jimenez-Smith
 4. Braden Ash
 5. Skye Guegan
-
-

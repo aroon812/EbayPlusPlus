@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-<style>
+<style> 
 .flex-container {
     display: -webkit-flex;
-    display: flex;
+    display: flex;  
     -webkit-flex-flow: row wrap;
     flex-flow: row wrap;
     text-align: center;
@@ -44,23 +44,18 @@ footer {background: #aaa;color:white;}
 <div class="flex-container">
 <header>
   <h1 ng-bind="vm.item.title"></h1>
-  <div align= "right">
-  <a href="/items/{{ vm.item._id }}/bid" class="button pull-right">
-    <input type="submit" value="Place Bid"/>
-  </a>
-  </div>
 </header>
 
   <div id= 'itemPageInfo'>
     <label class="itemLabel" for="itemPageInfo">Description</label>
-      <div ng-bind="vm.item.itemDetails"></div>
+    <div ng-bind="vm.item.itemDetails"></div>
     <label class="itemLabel" for="itemPageInfo">Bid Price</label>
-      <div ng-bind="vm.item.bidPrice | currency"></div>
+    <div ng-bind="vm.item.bidPrice"></div>
+
+   
+
     <label class="itemLabel" for="itemPageInfo">Buy Price</label>
-      <div ng-bind="vm.item.buyPrice | currency"></div>
-    <div>
-    <label class="itemLabel" for="itemPageInfo">Expiration Date</label>
-      <div ng-bind="vm.item.removalDate | date"></div>
+    <div ng-bind="vm.item.buyPrice"></div>
     <div>
         <button type="button" class="btn btn-default">Buy It Now</button>
       </div>

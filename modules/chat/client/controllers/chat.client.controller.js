@@ -26,6 +26,7 @@
       // Make sure the Socket is connected
       if (!Socket.socket) {
         Socket.connect();
+        
       }
 
       // Add an event listener to the 'chatMessage' event

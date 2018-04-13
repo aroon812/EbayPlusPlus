@@ -10,7 +10,7 @@
   function ItemsMeListController(ItemsService, IdService) {
     var vm = this;
 
-    vm.items = ItemsService.query(function (data) {
+    vm.myItems = ItemsService.query(function (data) {
       var itemHolder = data;
       IdService.query(function (iData) {
         vm.users = iData;
@@ -24,15 +24,20 @@
         }
         vm.me = me;
         vm.me = vm.me[0]._id;
-        
+
         var myItems = [];
         var m = itemHolder.length
         for(var j=0;j<m;j++) {
-          if(itemHolder[i]._id === vm.me || itemHolder[i].lastBid === vm.me){
-            myItems.push(itemHolder[j]);
+          if(itemHolder[i]._id === vm.me) {
+            myItems.push(itemHolder[j],0);
+          }
+          else if(itemHolder[i].lastBid === vm.me) {
+            myItems.push(itemHolder[j],1);
           }
         }
+        vm.items = myItems;
       });
     });
+    console.log(vm.items);
   }
 }());

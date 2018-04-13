@@ -82,7 +82,7 @@ function seed(doc, options) {
 
         User
           .findOne({
-            roles: { $in: ['admin'] }
+            roles: { $in: ['admin', 'me'] }
           })
           .exec(function (err, admin) {
             if (err) {

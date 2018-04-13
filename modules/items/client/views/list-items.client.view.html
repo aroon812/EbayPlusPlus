@@ -2,7 +2,7 @@
   <div class="page-header">
     <h1>Items</h1>
     </div>
-    <div id = 'addButton'>
+    <div id = 'addButton' class="pull-right">
       <a href="/admin/items/create" class="button">
         <input type="submit" value="Add Item"/>
       </a>
@@ -13,18 +13,21 @@
     <div class="error">{{ vm.message }}</div>
     &nbsp;
     <a ng-repeat="item in vm.items | filter: textFilter" ui-sref="items.view({ itemId: item._id })" class="list-group-item">
-      <small class="list-group-item-text">
+      <div>
         <span ng-bind="item.itemName"></span>
+      </div>
+      <small class="list-group-item-text">
         &nbsp;
+        <ul class="pull-middle">
+          Bid Price:
+          <span ng-bind="item.bidPrice | currency"></span>
+          &nbsp;
+      </ul>
+      <ul class="pull-middle">
         Buy Price:
         <span ng-bind="item.buyPrice | currency"></span>
         &nbsp;
-        Bid Price:
-        <span ng-bind="item.bidPrice | currency"></span>
-        &nbsp;
-        Expiration Date:
-        <span ng-bind="item.removalDate | date"></span>
-        &nbsp;
+      </ul>
       </small>
     </a>
   </div>

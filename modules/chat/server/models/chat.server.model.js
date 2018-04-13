@@ -12,9 +12,9 @@ var mongoose = require('mongoose'),
  * SocketId schema
  */
 var SocketIdSchema = new Schema({
-    userId: {
-        type: String,
-        default: ''
+  userId: {
+      type: String,
+      default: ''
       },
     socketId: {
         type: String,
@@ -23,3 +23,8 @@ var SocketIdSchema = new Schema({
     });
 
 mongoose.model('SocketId', SocketIdSchema);
+
+return {
+    name: 'SocketIdSchema',
+    schema: SocketIdSchema
+};

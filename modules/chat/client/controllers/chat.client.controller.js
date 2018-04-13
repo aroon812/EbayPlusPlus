@@ -25,10 +25,9 @@
 
       // Make sure the Socket is connected
       if (!Socket.socket) {
-        Socket.connect();
-        
+        Socket.connect();   
       }
-
+      Socket.emit('connected', 'test');
       // Add an event listener to the 'chatMessage' event
       Socket.on('chatMessage', function (message) {
         vm.messages.unshift(message);

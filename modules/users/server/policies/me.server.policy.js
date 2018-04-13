@@ -25,7 +25,7 @@ exports.invokeRolesPolicies = function () {
 };
 
 /**
- * Check If ME Policy Allows
+ * Check If Admin Policy Allows
  */
 exports.isAllowed = function (req, res, next) {
   var roles = (req.user) ? req.user.roles : ['guest'];

@@ -3,7 +3,7 @@
 
   angular
     .module('items.me')
-    .controller('ItemMeController', ItemsMeController);
+    .controller('ItemsMeController', ItemsMeController);
 
   ItemsMeController.$inject = ['$scope', '$state', '$window', 'itemResolve', 'Authentication', 'Notification'];
 

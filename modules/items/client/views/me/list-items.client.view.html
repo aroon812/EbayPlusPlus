@@ -1,11 +1,12 @@
 ﻿<section>
   <div class="page-header">
-    <h1>
-      Items
-    </h1>
+    <a class="btn btn-primary pull-right" data-ui-sref="me.items.create">
+      <i class="glyphicon glyphicon-plus"></i>
+    </a>
   </div>
+  <h1>My Items</h1>
   <div class="list-group">
-    <a data-ng-repeat="item in vm.items" data-ui-sref="me.items.edit({itemId: item._id})" class="list-group-item">
+    <a data-ng-repeat="item in vm.myItems" data-ui-sref="me.items.edit({itemId: item._id})" class="list-group-item">
       <div>
         <span ng-bind="item.itemName"></span>
       </div>
@@ -23,6 +24,28 @@
       </ul>
       </small>
   <div class="alert alert-warning text-center" data-ng-if="vm.items.$resolved && !vm.items.length">
-    No items yet, why don't you <a data-ui-sref="admin.items.create">create one</a>?
+    No items yet, why don't you <a data-ui-sref="me.items.create">create one</a>?
   </div>
+  <h1>Watched Items</h1>
+  <div class="list-group">
+      <a data-ng-repeat="item in vm.watchedItems" data-ui-sref="items.view({itemId: item._id})" class="list-group-item">
+        <div>
+          <span ng-bind="item.itemName"></span>
+        </div>
+        <small class="list-group-item-text">
+          &nbsp;
+          <ul class="pull-middle">
+            Bid Price:
+            <span ng-bind="item.bidPrice | currency"></span>
+            &nbsp;
+        </ul>
+        <ul class="pull-middle">
+          Buy Price:
+          <span ng-bind="item.buyPrice | currency"></span>
+          &nbsp;
+        </ul>
+        </small>
+    <div class="alert alert-warning text-center" data-ng-if="vm.items.$resolved && !vm.items.length">
+      No items yet, why don't you <a data-ui-sref="me.items.create">create one</a>?
+    </div>
 </section>

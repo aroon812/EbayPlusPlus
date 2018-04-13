@@ -10,7 +10,7 @@
   function ItemsMeListController(ItemsService, IdService) {
     var vm = this;
 
-    vm.myItems = ItemsService.query(function (data) {
+    ItemsService.query(function (data) {
       var itemHolder = data;
       IdService.query(function (iData) {
         vm.users = iData;
@@ -28,16 +28,38 @@
         var myItems = [];
         var m = itemHolder.length
         for(var j=0;j<m;j++) {
-          if(itemHolder[i]._id === vm.me) {
-            myItems.push(itemHolder[j],0);
-          }
-          else if(itemHolder[i].lastBid === vm.me) {
-            myItems.push(itemHolder[j],1);
+          if(itemHolder[j].user._id === vm.me) {
+            myItems.push(itemHolder[j]);
           }
         }
-        vm.items = myItems;
+        vm.myItems = myItems;
       });
     });
-    console.log(vm.items);
+
+    ItemsService.query(function (data) {
+      var itemHolder = data;
+      IdService.query(function (iData) {
+        vm.users = iData;
+        var fullList = vm.users;
+        var n = vm.users.length;
+        var me = [];
+        for(var i=0;i<n;i++) {
+          if(fullList[i].username === user.username){
+            me.push(fullList[i]);
+          }
+        }
+        vm.me = me[0]._id;
+
+        var watchedItems = [];
+        var m = itemHolder.length
+        for(var j=0;j<m;j++) {
+          if(itemHolder[j].lastBid === vm.me) {
+            watchedItems.push(itemHolder[j]);
+          }
+        }
+        vm.watchedItems = watchedItems;
+      });
+    });
+
   }
 }());

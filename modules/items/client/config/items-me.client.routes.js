@@ -23,6 +23,18 @@
           roles: ['me']
         }
       })
+      .state('me.items.create', {
+        url: '/create',
+        templateUrl: '/modules/items/client/views/me/form-item.client.view.html',
+        controller: 'ItemsMeController',
+        controllerAs: 'vm',
+        data: {
+          roles: ['me']
+        },
+        resolve: {
+          itemResolve: newItem
+        }
+      })
       .state('me.items.watch', {
         url: '/:itemId/watch',
         templateUrl: '/modules/items/client/views/view-item.client.view.html',

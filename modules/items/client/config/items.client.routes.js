@@ -38,7 +38,7 @@
         controller: 'ItemsPurchaseController',
         controllerAs: 'vm',
         data: {
-          roles: ['admin'],
+          roles: ['admin', 'me'],
           pageTitle: '{{ itemResolve.itemName }}'
         },
         resolve: {
@@ -51,7 +51,7 @@
         controller: 'ItemsPurchaseController',
         controllerAs: 'vm',
         data: {
-          roles: ['admin'],
+          roles: ['admin', 'me'],
           pageTitle: '{{ itemResolve.itemName }}'
         },
         resolve: {

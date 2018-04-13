@@ -31,7 +31,7 @@ module.exports = function (io, socket) {
     message.username = socket.request.user.username;
 
     // Emit the 'chatMessage' event
-    io.emit('chatMessage', message);
+     io.sockets.to(socket.id).emit('chatMessage', message);
   });
 
   // Emit the status event when a socket client is disconnected

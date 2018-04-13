@@ -5,9 +5,9 @@
     .module('chat')
     .controller('ChatController', ChatController);
 
-  ChatController.$inject = ['$scope', '$state', 'Authentication', 'Socket', 'IdService'];
+  ChatController.$inject = ['$scope', '$state', 'Authentication', 'Socket'];
 
-  function ChatController($scope, $state, Authentication, Socket, IdService) {
+  function ChatController($scope, $state, Authentication, Socket) {
     var vm = this;
 
     vm.messages = [];
@@ -29,21 +29,7 @@
         Socket.connect();   
       }
 
-      // connect socket id with user id
-      IdService.query(function (iData) {
-        vm.users = iData;
-        var fullList = vm.users;
-        var n = vm.users.length;
-        var me = [];
-        for(var i=0;i<n;i++) {
-          if(fullList[i].username === user.username){
-            me.push(fullList[i]);
-          }
-        }
-        vm.me = me;
-        vm.me = vm.me[0]._id;
-        Socket.emit('connected', vm.me);
-      });
+      Socket.emit('connected', user.username);
 
       // Add an event listener to the 'chatMessage' event
       Socket.on('chatMessage', function (message) {
@@ -67,7 +53,7 @@
 
       // Emit a 'chatMessage' message event
       Socket.emit('chatMessage', message);
-
+      
       // Clear the message text
       vm.messageText = '';
     }

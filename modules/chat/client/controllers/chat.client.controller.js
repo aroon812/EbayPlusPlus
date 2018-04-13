@@ -12,6 +12,7 @@
 
     vm.messages = [];
     vm.messageText = '';
+    vm.recieverId = '';
     vm.sendMessage = sendMessage;
 
     init();
@@ -25,11 +26,13 @@
       // Make sure the Socket is connected
       if (!Socket.socket) {
         Socket.connect();
+        
       }
 
       // Add an event listener to the 'chatMessage' event
       Socket.on('chatMessage', function (message) {
         vm.messages.unshift(message);
+
       });
 
       // Remove the event listener when the controller instance is destroyed
@@ -42,6 +45,7 @@
     function sendMessage() {
       // Create a new message object
       var message = {
+        recieverId: vm.recieverId,
         text: vm.messageText
       };
 

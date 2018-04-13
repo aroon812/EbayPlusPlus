@@ -51,7 +51,6 @@ exports.update = function (req, res) {
   item.buyPrice = req.body.buyPrice;
   item.itemDetails = req.body.itemDetails;
   item.lastBid = req.user;
-  item.removalDate = req.body.removalDate;
 
   item.save(function (err) {
     if (err) {

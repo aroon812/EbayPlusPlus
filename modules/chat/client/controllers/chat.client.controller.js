@@ -5,9 +5,9 @@
     .module('chat')
     .controller('ChatController', ChatController);
 
-  ChatController.$inject = ['$scope', '$state', 'Authentication', 'Socket'];
+  ChatController.$inject = ['$scope', '$state', 'Authentication', 'Socket', 'IdService'];
 
-  function ChatController($scope, $state, Authentication, Socket) {
+  function ChatController($scope, $state, Authentication, Socket, IdService) {
     var vm = this;
 
     vm.messages = [];
@@ -18,6 +18,7 @@
     init();
 
     function init() {
+
       // If user is not signed in then redirect back home
       if (!Authentication.user) {
         $state.go('home');
@@ -27,7 +28,23 @@
       if (!Socket.socket) {
         Socket.connect();   
       }
-      Socket.emit('connected', 'test');
+
+      // connect socket id with user id
+      IdService.query(function (iData) {
+        vm.users = iData;
+        var fullList = vm.users;
+        var n = vm.users.length;
+        var me = [];
+        for(var i=0;i<n;i++) {
+          if(fullList[i].username === user.username){
+            me.push(fullList[i]);
+          }
+        }
+        vm.me = me;
+        vm.me = vm.me[0]._id;
+        Socket.emit('connected', vm.me);
+      });
+
       // Add an event listener to the 'chatMessage' event
       Socket.on('chatMessage', function (message) {
         vm.messages.unshift(message);

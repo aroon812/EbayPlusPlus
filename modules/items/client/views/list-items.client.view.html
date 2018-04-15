@@ -19,6 +19,11 @@
       <small class="list-group-item-text">
         &nbsp;
         <ul class="pull-middle">
+       Removal Date:
+        <span ng-bind="item.removalDate | date"></span>
+          &nbsp;
+        </ul>
+        <ul class="pull-middle">
           Bid Price:
           <span ng-bind="item.bidPrice | currency"></span>
           &nbsp;

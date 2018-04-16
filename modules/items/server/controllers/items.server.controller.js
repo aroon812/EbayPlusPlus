@@ -85,7 +85,7 @@ exports.delete = function (req, res) {
  * List of Items
  */
 exports.list = function (req, res) {
-  Item.find().sort('-created').populate('user', 'displayName').exec(function (err, items) {
+  Item.find({"removalDate" : {$gte: new Date()}}).sort('-created').populate('user', 'displayName').exec(function (err, items) {
     if (err) {
       return res.status(422).send({
         message: errorHandler.getErrorMessage(err)

@@ -5,7 +5,7 @@
     .module('items.me')
     .controller('ItemsMeListController', ItemsMeListController);
 
-  ItemsMeListController.$inject = ['ItemsService','IdService'];
+  ItemsMeListController.$inject = ['ItemsService', 'IdService'];
 
   function ItemsMeListController(ItemsService, IdService) {
     var vm = this;
@@ -17,8 +17,8 @@
         var fullList = vm.users;
         var n = vm.users.length;
         var me = [];
-        for(var i=0;i<n;i++) {
-          if(fullList[i].username === user.username){
+        for (var i = 0; i < n; i ++) {
+          if (fullList[i].username === user.username){
             me.push(fullList[i]);
           }
         }
@@ -60,6 +60,5 @@
         vm.watchedItems = watchedItems;
       });
     });
-
   }
 }());

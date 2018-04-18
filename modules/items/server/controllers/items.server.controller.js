@@ -46,11 +46,13 @@ exports.read = function (req, res) {
 exports.update = function (req, res) {
   var item = req.item;
 
+
+  if (req.body.bidPrice > req.item.bidPrice ){
   item.itemName = req.body.itemName;
   item.bidPrice = req.body.bidPrice;
+  item.lastBid = req.user;
   item.buyPrice = req.body.buyPrice;
   item.itemDetails = req.body.itemDetails;
-  item.lastBid = req.user;
   item.removalDate = req.body.removalDate;
 
   item.save(function (err) {
@@ -62,6 +64,13 @@ exports.update = function (req, res) {
       res.json(item);
     }
   });
+  }
+  else{
+        return res.status(422).send({
+          message: "Bid needs to be larger than previous bid"
+        });
+  }
+
 };
 
 /**

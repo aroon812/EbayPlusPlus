@@ -40,6 +40,7 @@
           pageTitle: '{{ userResolve.displayName }}'
         }
       });
+      
 
     getUser.$inject = ['$stateParams', 'IdService'];
 

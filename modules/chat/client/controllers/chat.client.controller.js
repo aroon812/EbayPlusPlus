@@ -29,7 +29,25 @@
         Socket.connect();   
       }
 
-      Socket.emit('connected', user.username);
+      //Get friends list
+      IdService.query(function(data) {
+        vm.friends = data;
+      });
+
+      // connect socket id with user id
+      IdService.query(function (iData) {
+        vm.users = iData;
+        var fullList = vm.users;
+        var n = vm.users.length;
+        var me = [];
+        for(var i=0;i<n;i++) {
+          if(fullList[i].username === user.username){
+            me.push(fullList[i]);
+          }
+        }
+        vm.me = me[0]._id;
+        Socket.emit('connected', vm.me);
+      });
 
       // Add an event listener to the 'chatMessage' event
       Socket.on('chatMessage', function (message) {

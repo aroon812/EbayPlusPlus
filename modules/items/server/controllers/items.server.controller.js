@@ -51,6 +51,7 @@ exports.update = function (req, res) {
   item.buyPrice = req.body.buyPrice;
   item.itemDetails = req.body.itemDetails;
   item.lastBid = req.user;
+  item.removalDate = req.body.removalDate;
 
   item.save(function (err) {
     if (err) {
@@ -84,7 +85,7 @@ exports.delete = function (req, res) {
  * List of Items
  */
 exports.list = function (req, res) {
-  Item.find().sort('-created').populate('user', 'displayName').exec(function (err, items) {
+  Item.find({"removalDate" : {$gte: new Date()}}).sort('-created').populate('user', 'displayName').exec(function (err, items) {
     if (err) {
       return res.status(422).send({
         message: errorHandler.getErrorMessage(err)

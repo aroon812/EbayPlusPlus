@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-<style> 
+<style>
 .flex-container {
     display: -webkit-flex;
-    display: flex;  
+    display: flex;
     -webkit-flex-flow: row wrap;
     flex-flow: row wrap;
     text-align: center;
@@ -45,10 +45,13 @@ footer {background: #aaa;color:white;}
         <div class="page-header">
         <h1 ng-bind="vm.item.itemName"></h1>
         </div>
-    
+
         <div id= 'itemPageInfo'>
         <label class="itemLabel" for="itemPageInfo">Description</label>
             <div ng-bind="vm.item.itemDetails"></div>
+        <label class="itemLabel" for="itemPageInfo">Removal Date</label>
+            <div ng-bind="vm.item.removalDate | date"></div>
+        <div>
         <label class="itemLabel" for="itemPageInfo">Bid Price</label>
             <div ng-bind="vm.item.bidPrice | currency"></div>
         <div>

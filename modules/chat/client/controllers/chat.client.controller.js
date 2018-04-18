@@ -5,9 +5,9 @@
     .module('chat')
     .controller('ChatController', ChatController);
 
-  ChatController.$inject = ['$scope', '$state', 'Authentication', 'Socket', 'IdService'];
+  ChatController.$inject = ['$scope', '$state', 'Authentication', 'Socket'];
 
-  function ChatController($scope, $state, Authentication, Socket, IdService) {
+  function ChatController($scope, $state, Authentication, Socket) {
     var vm = this;
 
     vm.messages = [];
@@ -71,7 +71,7 @@
 
       // Emit a 'chatMessage' message event
       Socket.emit('chatMessage', message);
-
+      
       // Clear the message text
       vm.messageText = '';
     }

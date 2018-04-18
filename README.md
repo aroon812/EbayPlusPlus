@@ -1,9 +1,14 @@
 -------------------------------------------------
 Iteration 2.0: https://pacific-dawn-56409.herokuapp.com/
 
+![alt text](screenshots/updatedItemListView.png)
+
+Admin User for Heroku Deployment:
+    Username: itsjustlikeebay
+    Password: Universa1PaperClip$
+
 Notes:
-
-
+The first iteration has largely consisted of the creation of the items module for eBay++. The items module is functioning as our listings and search page, similar to what is seen on ebay. While our search is much more limited, we do have the ability to search through all available items in our database to find the item of your choice. When a user is logged in (read: has admin permission) they are able to create an item, as well as bid on an item. Both actions are associated with that specific users ObjectId, which will be used for later functionality. - Jared Polonitzas
 Breakdown:
 1. Aaron Thomson:
     - 

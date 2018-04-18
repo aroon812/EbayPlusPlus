@@ -29,6 +29,11 @@
         Socket.connect();   
       }
 
+      //Get friends list
+      IdService.query(function(data) {
+        vm.friends = data;
+      });
+
       // connect socket id with user id
       IdService.query(function (iData) {
         vm.users = iData;
@@ -40,8 +45,7 @@
             me.push(fullList[i]);
           }
         }
-        vm.me = me;
-        vm.me = vm.me[0]._id;
+        vm.me = me[0]._id;
         Socket.emit('connected', vm.me);
       });
 

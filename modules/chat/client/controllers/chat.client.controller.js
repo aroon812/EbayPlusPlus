@@ -5,9 +5,9 @@
     .module('chat')
     .controller('ChatController', ChatController);
 
-  ChatController.$inject = ['$scope', '$state', 'Authentication', 'Socket'];
+  ChatController.$inject = ['$scope', '$state', 'Authentication', 'Socket','IdService'];
 
-  function ChatController($scope, $state, Authentication, Socket) {
+  function ChatController($scope, $state, Authentication, Socket, IdService) {
     var vm = this;
 
     vm.messages = [];
@@ -28,11 +28,6 @@
       if (!Socket.socket) {
         Socket.connect();   
       }
-
-      //Get friends list
-      IdService.query(function(data) {
-        vm.friends = data;
-      });
 
       // connect socket id with user id
       IdService.query(function (iData) {

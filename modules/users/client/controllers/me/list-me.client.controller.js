@@ -13,6 +13,7 @@
     vm.figureOutItemsToDisplay = figureOutItemsToDisplay;
     vm.pageChanged = pageChanged;
     vm.currentUser = user;
+
     // findId();
 
     // function findId() {

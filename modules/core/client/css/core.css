@@ -41,3 +41,111 @@ a:hover .header-profile-image {
 .has-error .help-inline.error-text {
   display: inline;
 }
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', 'serif';
+}
+
+.nav {
+    background-color: darkslategrey;
+    box-shadow: 0 8px 6px -6px darkslategrey;
+    color: ffffff;
+    list-style: none;
+    text-align: left;
+    padding: 5px 0px 5px 0px;
+    margin: 0;
+
+}
+
+.nav > li {
+    display: inline-block;
+    padding: 0px 20px 0px 20px;
+}
+
+
+.nava {
+    background-color: darkslategrey;
+    box-shadow: 0 8px 6px -6px darkslategrey;
+    list-style: none;
+    text-align: left;
+    padding: 20px 5px 20px 5px;
+}
+
+.nava > li {
+    display: inline-block;
+    padding: 0px 20px 10px 20px;
+}
+
+.nava > li > a {
+    text-decoration: none;
+    color: white;
+}
+
+.nava > li > a:hover {
+    color: #c1c1c1;
+}
+
+
+.logo {
+    width: 90px;
+    height: 40px;
+    padding: 0px;
+    display: center;
+}
+
+.bulk {
+    margin-left: 170px;
+    border-left: 1px solid darkslategray;
+    padding: 1em;
+    overflow: hidden;
+}
+
+.home {
+    background-color: white;
+    color: white;
+}
+
+h1 {
+    padding: 5px 10px 5px 10px;
+}
+.welcome {
+    font-family: Georgia, Times, 'Times New Roman', serif;
+    font-style: bold;
+}
+
+.side-bar {
+    float: left;
+    max-width: 125px;
+    margin-left: 10px;
+    overflow: hidden;
+    margin-top: 51px;
+    margin-left: -20px;
+}
+
+.foot {
+    background-color: darkslategrey;
+    position: fixed;
+    height: 30px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    margin-bottom: 0px;
+    color: white;
+    text-decoration: none;
+    box-shadow: 0 8px 6px -6px darkslategrey;
+}
+
+p {
+    padding: 2.5px 10px 2.5px 10px;
+}
+
+body {
+    margin-bottom:30px;
+}
+
+
+.page {
+  margin-top: 100px;
+}

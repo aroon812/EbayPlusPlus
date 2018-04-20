@@ -60,7 +60,6 @@
     function sendMessage() {
       // Create a new message object
       var message = {
-        recieverId: vm.recieverId,
         text: vm.messageText
       };
 

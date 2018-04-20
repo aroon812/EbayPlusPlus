@@ -9,22 +9,24 @@ var mongoose = require('mongoose'),
   chalk = require('chalk');
 
 /**
- * SocketId schema
+ *  Private Chat schema
  */
-var SocketIdSchema = new Schema({
-  userId: {
-      type: String,
-      default: ''
-      },
-    socketId: {
-        type: String,
-        default: ''
-      } 
+var PrivateChatSchema = new Schema({
+  myMessages : [String],
+  theirMessages: [String],
+  corresponder: {
+    type : String,
+    required: "can not send a message to no one"
+  },
+  user: {
+    type: Schema.ObjectId,
+    ref: 'User'
+  }
     });
 
-mongoose.model('SocketId', SocketIdSchema);
+mongoose.model('PrivateChatSchema', PrivateChatSchema);
 
 return {
-    name: 'SocketIdSchema',
-    schema: SocketIdSchema
+    name: 'PrivateChatSchema',
+    schema: PrivateChatSchema
 };

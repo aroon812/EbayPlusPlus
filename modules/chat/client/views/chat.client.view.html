@@ -6,21 +6,15 @@
   <!-- The message form -->
   <form class="col-xs-12 col-md-offset-4 col-md-4" ng-submit="vm.sendMessage();">
     <fieldset class="row">
-
-        <div class="input-group">
-            <input type="text" id="userText" name="userText" class="form-control" ng-model="vm.recieverId" placeholder="Enter username of recipient" autofocus>
-          </div>
-
       <div class="input-group">
         <input type="text" id="messageText" name="messageText" class="form-control" ng-model="vm.messageText" placeholder="Enter new message" autofocus>
         <span class="input-group-btn">
           <button type="submit" class="btn btn-primary" ng-disabled="!vm.messageText.length">Submit</button>
         </span>
       </div>
-
-
     </fieldset>
   </form>
+
   <ul class="list-unstyled">
     <!-- List all messages -->
     <li class="col-xs-12 col-md-offset-4 col-md-4 chat-message" ng-repeat="message in vm.messages">

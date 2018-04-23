@@ -5,7 +5,7 @@
       .module('items')
       .controller('ItemsPurchaseController', ItemsPurchaseController);
 
-      ItemsPurchaseController.$inject = ['$scope', '$state', '$window', 'itemResolve', 'Authentication', 'Notification'];
+    ItemsPurchaseController.$inject = ['$scope', '$state', '$window', 'itemResolve', 'Authentication', 'Notification'];
 
     function ItemsPurchaseController($scope, $state, $window, item, Authentication, Notification) {
       var vm = this;
@@ -46,8 +46,6 @@
         function errorCallback(res) {
           Notification.error({ message: res.data.message, title: '<i class="glyphicon glyphicon-remove"></i> Item save error!' });
         }
-          }
-        }
-      
-
+      }
+    }
   }());

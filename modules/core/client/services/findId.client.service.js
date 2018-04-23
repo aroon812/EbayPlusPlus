@@ -1,19 +1,19 @@
 (function () {
-    'use strict';
-    
-angular
-.module('core.me.services')
-.factory('IdService', IdService);
+  'use strict';
 
-IdService.$inject = ['$resource'];
+  angular
+  .module('core.me.services')
+  .factory('IdService', IdService);
 
-function IdService($resource) {
-return $resource('/api/users/:userId', {
-  userId: '@_id'
-}, {
-  update: {
-    method: 'PUT'
+  IdService.$inject = ['$resource'];
+
+  function IdService($resource) {
+    return $resource('/api/users/:userId', {
+      userId: '@_id'
+    }, {
+      update: {
+        method: 'PUT'
+      }
+    });
   }
-});
-}
 }());

@@ -12,7 +12,6 @@
     vm.buildPager = buildPager;
     vm.figureOutItemsToDisplay = figureOutItemsToDisplay;
     vm.pageChanged = pageChanged;
-    vm.currentUser = user;
 
     // findId();
 
@@ -46,8 +45,8 @@
       var fullList = vm.users;
       var n = vm.users.length;
       var me = [];
-      for(var i=0;i<n;i++) {
-        if(fullList[i].username === user.username){
+      for (var i = 0; i < n; i++) {
+        if (fullList[i].username === user.username) {
           me.push(fullList[i]);
         }
       }

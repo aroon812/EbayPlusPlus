@@ -5,7 +5,7 @@
     .module('chat')
     .controller('ChatController', ChatController);
 
-  ChatController.$inject = ['$scope', '$state', 'Authentication', 'Socket','IdService','MessageService'];
+  ChatController.$inject = ['$scope', '$state', 'Authentication', 'Socket', 'IdService', 'MessageService'];
 
   function ChatController($scope, $state, Authentication, Socket, IdService, MessageService) {
     var vm = this;
@@ -25,7 +25,7 @@
 
       // Make sure the Socket is connected
       if (!Socket.socket) {
-        Socket.connect();  
+        Socket.connect();
       }
 
       // Add an event listener to the 'chatMessage' event
@@ -36,39 +36,39 @@
       // Remove the event listener when the controller instance is destroyed
       $scope.$on('$destroy', function () {
         Socket.removeListener('chatMessage');
-        });
-      }
+      });
+    }
 
       // Create a controller method for sending messages
     function sendMessage() {
         // Create a new message object
-        var message = {
-          text: vm.messageText
-        };
+      var message = {
+        text: vm.messageText
+      };
 
         // Emit a 'chatMessage' message event
-        Socket.emit('chatMessage', message);
+      Socket.emit('chatMessage', message);
 
-        vm.message = {
-          message: message,
-          corresponder: window.location.pathname.split('/')[1]
-        };
+      vm.message = {
+        message: message,
+        corresponder: window.location.pathname.split('/')[1]
+      };
 
-        save(vm.message);
+      save(vm.message);
 
-          function save(isValid) {
-            if (!isValid) {
-              $scope.$broadcast('show-errors-check-validity', 'vm.message');
-              return false;
-            }
-            console.log('where am i getting');
-            console.log('How do i add vm.message to the database');
-          }
-
-        console.log(vm.theMessages);
-        
-        // Clear the message text
-        vm.messageText = '';
+      function save(isValid) {
+        if (!isValid) {
+          $scope.$broadcast('show-errors-check-validity', 'vm.message');
+          return false;
+        }
+        console.log('where am i getting');
+        console.log('How do i add vm.message to the database');
       }
+
+      console.log(vm.theMessages);
+
+        // Clear the message text
+      vm.messageText = '';
     }
+  }
 }());

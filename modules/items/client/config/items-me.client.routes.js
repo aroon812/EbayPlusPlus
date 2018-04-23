@@ -12,7 +12,7 @@
       .state('me.items', {
         abstract: true,
         url: '/items',
-        template: '<ui-view/>',
+        template: '<ui-view/>'
       })
       .state('me.items.list', {
         url: '',

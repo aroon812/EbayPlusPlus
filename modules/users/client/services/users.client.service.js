@@ -91,15 +91,15 @@
   .module('users.me.services')
   .factory('MeService', MeService);
 
-MeService.$inject = ['$resource'];
+  MeService.$inject = ['$resource'];
 
-function MeService($resource) {
-  return $resource('/api/users/:userId', {
-    userId: '@_id'
-  }, {
-    update: {
-      method: 'PUT'
-    }
-  });
-}
+  function MeService($resource) {
+    return $resource('/api/users/:userId', {
+      userId: '@_id'
+    }, {
+      update: {
+        method: 'PUT'
+      }
+    });
+  }
 }());

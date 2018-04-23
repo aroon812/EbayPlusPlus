@@ -12,11 +12,10 @@ var mongoose = require('mongoose'),
  *  Private Chat schema
  */
 var PrivateChatSchema = new Schema({
-  myMessages : [String],
-  theirMessages: [String],
+  message : String,
   corresponder: {
     type : String,
-    required: "can not send a message to no one"
+    required: "can't send a message to no one"
   },
   user: {
     type: Schema.ObjectId,

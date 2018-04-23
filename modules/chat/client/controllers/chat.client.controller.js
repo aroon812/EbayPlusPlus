@@ -5,20 +5,19 @@
     .module('chat')
     .controller('ChatController', ChatController);
 
-  ChatController.$inject = ['$scope', '$state', 'Authentication', 'Socket','IdService'];
+  ChatController.$inject = ['$scope', '$state', 'Authentication', 'Socket','IdService','MessageService'];
 
-  function ChatController($scope, $state, Authentication, Socket, IdService) {
+  function ChatController($scope, $state, Authentication, Socket, IdService, MessageService) {
     var vm = this;
 
     vm.messages = [];
     vm.messageText = '';
-    vm.recieverId = '';
+    vm.theMessages = [];
     vm.sendMessage = sendMessage;
 
     init();
 
     function init() {
-
       // If user is not signed in then redirect back home
       if (!Authentication.user) {
         $state.go('home');
@@ -26,48 +25,50 @@
 
       // Make sure the Socket is connected
       if (!Socket.socket) {
-        Socket.connect();   
+        Socket.connect();  
       }
-
-      // connect socket id with user id
-      IdService.query(function (iData) {
-        vm.users = iData;
-        var fullList = vm.users;
-        var n = vm.users.length;
-        var me = [];
-        for(var i=0;i<n;i++) {
-          if(fullList[i].username === user.username){
-            me.push(fullList[i]);
-          }
-        }
-        vm.me = me[0]._id;
-        Socket.emit('connected', vm.me);
-      });
 
       // Add an event listener to the 'chatMessage' event
       Socket.on('chatMessage', function (message) {
         vm.messages.unshift(message);
-
       });
 
       // Remove the event listener when the controller instance is destroyed
       $scope.$on('$destroy', function () {
         Socket.removeListener('chatMessage');
-      });
-    }
+        });
+      }
 
-    // Create a controller method for sending messages
+      // Create a controller method for sending messages
     function sendMessage() {
-      // Create a new message object
-      var message = {
-        text: vm.messageText
-      };
+        // Create a new message object
+        var message = {
+          text: vm.messageText
+        };
 
-      // Emit a 'chatMessage' message event
-      Socket.emit('chatMessage', message);
-      
-      // Clear the message text
-      vm.messageText = '';
+        // Emit a 'chatMessage' message event
+        Socket.emit('chatMessage', message);
+
+        vm.message = {
+          message: message,
+          corresponder: window.location.pathname.split('/')[1]
+        };
+
+        save(vm.message);
+
+          function save(isValid) {
+            if (!isValid) {
+              $scope.$broadcast('show-errors-check-validity', 'vm.message');
+              return false;
+            }
+            console.log('where am i getting');
+            console.log('How do i add vm.message to the database');
+          }
+
+        console.log(vm.theMessages);
+        
+        // Clear the message text
+        vm.messageText = '';
+      }
     }
-  }
 }());

@@ -204,18 +204,18 @@ describe('CalEvent CRUD tests', function () {
 
 // More tests for private/public event handling
 
-    it('should be able to get a list of private calendar events if logged in', function (done) {
+  it('should be able to get a list of private calendar events if logged in', function (done) {
       // Create new calendar event
-         var calEventObj = new CalEvent(calEvent);
+    var calEventObj = new CalEvent(calEvent);
 
          // Post a private event
-         calEvent={
-           title:'Calender Event',
-           permission: 'private'
-         };
+    calEvent = {
+      title: 'Calender Event',
+      permission: 'private'
+    };
 
-         //check if user is signed in
-         agent.post('/api/auth/signin')
+         // check if user is signed in
+    agent.post('/api/auth/signin')
            .send(credentials)
            .expect(200)
            .end(function (signinErr, signinRes) {
@@ -237,21 +237,21 @@ describe('CalEvent CRUD tests', function () {
                });
              });
            });
-       });
+  });
 
 
-    it('should not be able to get a list of private calendar events if not logged in', function (done) {
+  it('should not be able to get a list of private calendar events if not logged in', function (done) {
       // Create new calendar event
-         var calEventObj = new CalEvent(calEvent);
+    var calEventObj = new CalEvent(calEvent);
 
          // Post a private event
-         calEvent={
-           title:'Calender Event',
-           permission: 'private'
-         };
+    calEvent = {
+      title: 'Calender Event',
+      permission: 'private'
+    };
 
-         //check if user is signed in
-         agent.post('/api/auth/signin')
+         // check if user is signed in
+    agent.post('/api/auth/signin')
            .send(credentials)
            .expect(200)
            .end(function (signinErr, signinRes) {
@@ -261,7 +261,7 @@ describe('CalEvent CRUD tests', function () {
              }
 
              var userId = user.id;
-    });
+           });
 /*
     it('should  be able to get a single private calendar event if logged in', function (done) {
 
@@ -272,9 +272,10 @@ describe('CalEvent CRUD tests', function () {
     });
   */
 
-  afterEach(function (done) {
-    User.remove().exec(function () {
-      CalEvent.remove().exec(done);
+    afterEach(function (done) {
+      User.remove().exec(function () {
+        CalEvent.remove().exec(done);
+      });
     });
   });
 });

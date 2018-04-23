@@ -95,9 +95,16 @@ body {
     display: center;
 }
 
+.logo2 {
+    width: 47px;
+    height: 47px;
+    padding: 0px;
+    display: inline-block;
+}
+
+
 .bulk {
     margin-left: 170px;
-    border-left: 1px solid darkslategray;
     padding: 1em;
     overflow: hidden;
 }
@@ -117,11 +124,10 @@ h1 {
 
 .side-bar {
     float: left;
-    max-width: 125px;
-    margin-left: 10px;
+    max-width: 300px;
     overflow: hidden;
     margin-top: 51px;
-    margin-left: -20px;
+    border-right: 1px solid darkslategray;
 }
 
 .foot {

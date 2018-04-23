@@ -99,7 +99,12 @@ body {
     width: 47px;
     height: 47px;
     padding: 0px;
-    display: inline-block;
+}
+
+.title {
+    width: 150px;
+    height: 70px;
+    padding: 0px;
 }
 
 
@@ -124,7 +129,7 @@ h1 {
 
 .side-bar {
     float: left;
-    max-width: 300px;
+    max-width: 250px;
     overflow: hidden;
     margin-top: 51px;
     border-right: 1px solid darkslategray;

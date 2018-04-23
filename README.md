@@ -1,4 +1,29 @@
 -------------------------------------------------
+Iteration 3.0: https://pacific-dawn-56409.herokuapp.com/
+
+![alt text]()
+
+Admin User for Heroku Deployment:
+    Username: itsjustlikeebay
+    Password: Universa1PaperClip$
+
+Notes:
+This second iteration of our mean stack project hosts most of the body for our ebaY++ project. In this tag we are setting up an entire frot end HTML and CSS framework as well as back end features such as bidding, paying, viewing and selling items. - Lukas Jimenez-Smith
+Breakdown:
+1. Aaron Thomson:
+    - 
+2. Jared Polonitza:
+    - 
+3. Braden Ash:
+    - 
+4. Skye Guegan:
+    - 
+5. Lukas Jimenez-Smith
+    - Update readme
+    - Finish CSS and HTML for website
+    - help clear up bugs
+
+-------------------------------------------------
 Iteration 2.0: https://pacific-dawn-56409.herokuapp.com/
 
 ![alt text](screenshots/updatedItemListView.png)

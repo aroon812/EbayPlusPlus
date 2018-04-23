@@ -54,7 +54,7 @@ body {
     color: ffffff;
     list-style: none;
     text-align: left;
-    padding: 5px 0px 5px 0px;
+    padding: 0px 0px 0px 0px;
     margin: 0;
 
 }
@@ -73,17 +73,17 @@ body {
     padding: 20px 5px 20px 5px;
 }
 
-.nava > li {
+.nav > li {
     display: inline-block;
-    padding: 0px 20px 10px 20px;
+    padding: 0px 20px 0px 20px;
 }
 
-.nava > li > a {
+.nav > li > a {
     text-decoration: none;
     color: white;
 }
 
-.nava > li > a:hover {
+.nav > li > a:hover {
     color: #c1c1c1;
 }
 

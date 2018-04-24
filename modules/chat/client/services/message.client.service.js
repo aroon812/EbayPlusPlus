@@ -1,9 +1,11 @@
 (function () {
-  'use strict';
+    'use strict';
+    
+angular
+  .module('chat.service.messages')
+  .factory('MessageService', MessageService);
 
-  angular
-    .module('chat.service.messages')
-    .factory('MessageService', MessageService);
+MessageService.$inject = ['$resource'];
 
 function MessageService($resource) {
 return $resource('/api/messages/:messageId', {
@@ -12,4 +14,6 @@ return $resource('/api/messages/:messageId', {
   update: {
     method: 'PUT'
   }
+});
+}
 }());

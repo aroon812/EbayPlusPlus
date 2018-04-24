@@ -51,25 +51,16 @@
         // Emit a 'chatMessage' message event
       Socket.emit('chatMessage', message);
 
-      vm.message = {
-        message: message,
-        corresponder: window.location.pathname.split('/')[1]
-      };
-
-        lastMessage.$save(function (data) {
-          lastMessage._id = data._id;
+      vm.newMessage = function () {
+        var newMessage = new MessageService({
+          message: vm.messageText,
+          corresponder: window.location.pathname.split('/')[1]
         });
-
-      function save(isValid) {
-        if (!isValid) {
-          $scope.$broadcast('show-errors-check-validity', 'vm.message');
-          return false;
-        }
-        console.log('where am i getting');
-        console.log('How do i add vm.message to the database');
-      }
-
-      console.log(vm.theMessages);
+  
+        newMessage.$save(function (data) {
+          newMessage._id = data._id;
+        });
+      };
 
         // Clear the message text
       vm.messageText = '';

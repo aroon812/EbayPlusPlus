@@ -47,28 +47,27 @@ exports.update = function (req, res) {
   var item = req.item;
 
 
-  if (req.body.bidPrice > req.item.bidPrice ){
-  item.itemName = req.body.itemName;
-  item.bidPrice = req.body.bidPrice;
-  item.lastBid = req.user;
-  item.buyPrice = req.body.buyPrice;
-  item.itemDetails = req.body.itemDetails;
-  item.removalDate = req.body.removalDate;
+  if (req.body.bidPrice > req.item.bidPrice) {
+    item.itemName = req.body.itemName;
+    item.bidPrice = req.body.bidPrice;
+    item.lastBid = req.user;
+    item.buyPrice = req.body.buyPrice;
+    item.itemDetails = req.body.itemDetails;
+    item.removalDate = req.body.removalDate;
 
-  item.save(function (err) {
-    if (err) {
-      return res.status(422).send({
-        message: errorHandler.getErrorMessage(err)
-      });
-    } else {
-      res.json(item);
-    }
-  });
-  }
-  else{
+    item.save(function (err) {
+      if (err) {
         return res.status(422).send({
-          message: "Bid needs to be larger than previous bid"
+          message: errorHandler.getErrorMessage(err)
         });
+      } else {
+        res.json(item);
+      }
+    });
+  } else {
+    return res.status(422).send({
+      message: 'Bid needs to be larger than previous bid'
+    });
   }
 
 };
@@ -94,7 +93,7 @@ exports.delete = function (req, res) {
  * List of Items
  */
 exports.list = function (req, res) {
-  Item.find({"removalDate" : {$gte: new Date()}}).sort('-created').populate('user', 'displayName').exec(function (err, items) {
+  Item.find({ 'removalDate': { $gte: new Date() } }).sort('-created').populate('user', 'displayName').exec(function (err, items) {
     if (err) {
       return res.status(422).send({
         message: errorHandler.getErrorMessage(err)

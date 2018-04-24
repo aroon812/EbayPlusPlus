@@ -24,9 +24,7 @@ exports.create = function (req, res) {
         res.json(calEvent);
       }
     });
-  }
-
-  else if (req.body.permission === 'public') {
+  } else if (req.body.permission === 'public') {
     calEvent.save(function (err) {
       if (err) {
         return res.status(400).send({
@@ -36,8 +34,7 @@ exports.create = function (req, res) {
         res.json(calEvent);
       }
     });
-  }
-  else {
+  } else {
     return res.status(400).send({
       message: errorHandler.getErrorMessage(err)
     });
@@ -106,15 +103,13 @@ exports.list = function (req, res) {
         res.json(calEvents);
       }
     });
-  }
-  else {
+  } else {
     CalEvent.find({ $or: [{ user: req.user._id }, { permission: 'public' }] }).sort('-created').populate('user', 'displayName').exec(function (err, calEvents) {
       if (err) {
         return res.status(400).send({
           message: errorHandler.getErrorMessage(err)
         });
-      }
-      else {
+      } else {
         res.json(calEvents);
       }
     });

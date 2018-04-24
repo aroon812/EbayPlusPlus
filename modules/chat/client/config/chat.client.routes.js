@@ -26,6 +26,6 @@
           data: {
             roles: ['user', 'me', 'admin']
           }
-      })
-  };
+        });
+  }
 }());

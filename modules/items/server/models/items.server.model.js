@@ -51,7 +51,7 @@ var ItemSchema = new Schema({
   user: {
     type: Schema.ObjectId,
     ref: 'User'
-  },
+  }
 });
 
 ItemSchema.statics.seed = seed;

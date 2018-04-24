@@ -12,20 +12,20 @@ var mongoose = require('mongoose'),
  *  Private Chat schema
  */
 var PrivateChatSchema = new Schema({
-  message : String,
+  message: String,
   corresponder: {
-    type : String,
-    required: "can't send a message to no one"
+    type: String,
+    required: 'can\'t send a message to no one'
   },
   user: {
     type: Schema.ObjectId,
     ref: 'User'
   }
-    });
+});
 
 mongoose.model('PrivateChatSchema', PrivateChatSchema);
 
 return {
-    name: 'PrivateChatSchema',
-    schema: PrivateChatSchema
+  name: 'PrivateChatSchema',
+  schema: PrivateChatSchema
 };

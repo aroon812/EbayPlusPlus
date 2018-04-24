@@ -43,9 +43,9 @@ a:hover .header-profile-image {
 }
 
 body {
+    font-family: 'Arial', 'serif';
     margin: 0;
     padding: 0;
-    font-family: 'Arial', 'serif';
 }
 
 .nav {
@@ -53,15 +53,14 @@ body {
     box-shadow: 0 8px 6px -6px darkslategrey;
     color: ffffff;
     list-style: none;
-    text-align: left;
-    padding: 0px 0px 0px 0px;
     margin: 0;
-
+    padding: 0 0 0 0;
+    text-align: left;
 }
 
 .nav > li {
     display: inline-block;
-    padding: 0px 20px 0px 20px;
+    padding: 0 20px 0 20px;
 }
 
 
@@ -69,18 +68,18 @@ body {
     background-color: darkslategrey;
     box-shadow: 0 8px 6px -6px darkslategrey;
     list-style: none;
+    padding: 20px 5 20px 5;
     text-align: left;
-    padding: 20px 5px 20px 5px;
 }
 
 .nav > li {
     display: inline-block;
-    padding: 0px 20px 0px 20px;
+    padding: 0 20px 0 20px;
 }
 
 .nav > li > a {
-    text-decoration: none;
     color: white;
+    text-decoration: none;
 }
 
 .nav > li > a:hover {
@@ -89,29 +88,29 @@ body {
 
 
 .logo {
-    width: 90px;
-    height: 40px;
-    padding: 0px;
     display: center;
+    height: 40px;
+    padding: 0;
+    width: 90px;
 }
 
 .logo2 {
-    width: 47px;
     height: 47px;
-    padding: 0px;
+    padding: 0;
+    width: 47px;
 }
 
 .title {
-    width: 150px;
     height: 70px;
-    padding: 0px;
+    padding: 0;
+    width: 150px;
 }
 
 
 .bulk {
     margin-left: 170px;
-    padding: 1em;
     overflow: hidden;
+    padding: 1em;
 }
 
 .home {
@@ -128,24 +127,24 @@ h1 {
 }
 
 .side-bar {
+    border-right: 1px solid darkslategray;
     float: left;
+    margin-top: 51px;
     max-width: 250px;
     overflow: hidden;
-    margin-top: 51px;
-    border-right: 1px solid darkslategray;
 }
 
 .foot {
     background-color: darkslategrey;
-    position: fixed;
-    height: 30px;
-    bottom: 0px;
-    left: 0px;
-    right: 0px;
-    margin-bottom: 0px;
-    color: white;
-    text-decoration: none;
+    bottom: 0;
     box-shadow: 0 8px 6px -6px darkslategrey;
+    color: white;
+    height: 30px;
+    left: 0;
+    margin-bottom: 0;
+    position: fixed;
+    right: 0;
+    text-decoration: none;
 }
 
 p {

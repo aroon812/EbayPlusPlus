@@ -60,7 +60,6 @@
 
         lastMessage.$save(function (data) {
           lastMessage._id = data._id;
-          vm.messages.push(lastMessage);
         });
 
         // Clear the message text

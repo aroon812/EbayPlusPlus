@@ -12,8 +12,6 @@ var path = require('path'),
  * Create a message
  */
 exports.create = function (req, res) {
-  console.log('Hacker voice "im in"');
-  console.log(req.body);
   var message = new Message(req.body);
   message.user = req.user;
 

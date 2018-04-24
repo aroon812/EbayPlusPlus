@@ -7,7 +7,7 @@
 
   menuConfig.$inject = ['menuService'];
 
-  // Configuring the Users module 
+// Configuring the Users module
   function menuConfig(menuService) {
     menuService.addSubMenuItem('topbar', 'me', {
       title: 'Manage Me',

@@ -16,7 +16,7 @@
     vm.update = update;
     vm.isContextUserSelf = isContextUserSelf;
 
-    //Update this to work as a self deletion mechanism
+    // Update this to work as a self deletion mechanism
     function remove(user) {
       if ($window.confirm('Are you sure you want to delete this user?')) {
         if (user) {

@@ -59,7 +59,7 @@
         }
       });
   }
-  
+
   getItem.$inject = ['$stateParams', 'ItemsService'];
 
   function getItem($stateParams, ItemsService) {

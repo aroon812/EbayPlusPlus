@@ -8,8 +8,8 @@ angular
 MessageService.$inject = ['$resource'];
 
 function MessageService($resource) {
-return $resource('/api/messages/:userId', {
-  userId: '@_id'
+return $resource('/api/messages/:messageId', {
+  messageId: '@_id'
 }, {
   update: {
     method: 'PUT'

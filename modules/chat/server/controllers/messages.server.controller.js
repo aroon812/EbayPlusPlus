@@ -5,11 +5,11 @@
  */
 var path = require('path'),
   mongoose = require('mongoose'),
-  Message = mongoose.model('PrivateChatSchema'),
+  Message = mongoose.model('MessagesSchema'),
   errorHandler = require(path.resolve('./modules/core/server/controllers/errors.server.controller'));
 
 /**
- * Create an message
+ * Create a message
  */
 exports.create = function (req, res) {
   console.log('Hacker voice "im in"');
@@ -43,7 +43,7 @@ exports.read = function (req, res) {
 };
 
 /**
- * Update an message
+ * Update a message
  */
 exports.update = function (req, res) {
   var message = req.message;

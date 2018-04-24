@@ -11,7 +11,7 @@ var mongoose = require('mongoose'),
 /**
  *  Private Chat schema
  */
-var PrivateChatSchema = new Schema({
+var MessagesSchema = new Schema({
   message : String,
   corresponder: {
     type : String,
@@ -21,11 +21,11 @@ var PrivateChatSchema = new Schema({
     type: Schema.ObjectId,
     ref: 'User'
   }
-    });
+});
 
-mongoose.model('PrivateChatSchema', PrivateChatSchema);
+mongoose.model('MessagesSchema', MessagesSchema);
 
 return {
-    name: 'PrivateChatSchema',
-    schema: PrivateChatSchema
+    name: 'Messages',
+    schema: MessagesSchema
 };

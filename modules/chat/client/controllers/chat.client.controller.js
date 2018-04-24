@@ -10,10 +10,12 @@
   function ChatController($scope, $state, Authentication, Socket, IdService, MessageService) {
     var vm = this;
 
-    vm.messages = [];
     vm.messageText = '';
     vm.theMessages = [];
     vm.sendMessage = sendMessage;
+    vm.olds =  MessageService.query();
+    console.log(vm.olds);
+    
 
     init();
 
@@ -25,7 +27,7 @@
 
       // Make sure the Socket is connected
       if (!Socket.socket) {
-        Socket.connect();  
+        Socket.connect();
       }
 
       // Add an event listener to the 'chatMessage' event
@@ -49,24 +51,18 @@
         // Emit a 'chatMessage' message event
         Socket.emit('chatMessage', message);
 
-        vm.message = {
-          message: message,
+        var lastMessage = new MessageService({
+          message: vm.messageText,
           corresponder: window.location.pathname.split('/')[1]
-        };
-
-        save(vm.message);
-
-          function save(isValid) {
-            if (!isValid) {
-              $scope.$broadcast('show-errors-check-validity', 'vm.message');
-              return false;
-            }
-            console.log('where am i getting');
-            console.log('How do i add vm.message to the database');
-          }
-
-        console.log(vm.theMessages);
+        });
         
+        console.log(lastMessage);
+
+        lastMessage.$save(function (data) {
+          lastMessage._id = data._id;
+          vm.messages.push(lastMessage);
+        });
+
         // Clear the message text
         vm.messageText = '';
       }

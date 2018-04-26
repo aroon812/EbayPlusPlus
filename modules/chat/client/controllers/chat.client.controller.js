@@ -33,9 +33,13 @@
         }
         vm.me = me[0]._id;
         var n = data.length;
+        console.log(data);
         for (var i = 0; i < n; i++) {
-          console.log(data[i].corresponder === window.location.pathname.split('/')[1]);
-          if (data[i].corresponder === window.location.pathname.split('/')[1] && data[i].user._id === vm.me) { 
+          var x = data[i].corresponder === window.location.pathname.split('/')[1];
+          var y = data[i].user._id === vm.me;
+          var z = data[i].corresponder === vm.me;
+          var w = data[i].user._id === window.location.pathname.split('/')[1];
+          if (x && y || z && w) { 
             var mes = {
               username: data[i].user.displayName,
               text: data[i].message
@@ -47,7 +51,6 @@
       });
     });
 
-    console.log(vm.messages);
     init();
 
     function init() {

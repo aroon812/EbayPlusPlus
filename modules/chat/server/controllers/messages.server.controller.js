@@ -93,7 +93,7 @@ exports.delete = function (req, res) {
  * List of Messages
  */
 exports.list = function (req, res) {
-  Message.find({ 'removalDate': { $gte: new Date() } }).sort('-created').populate('user', 'displayName').exec(function (err, messages) {
+  Message.find().sort('-created').populate('user', 'displayName').exec(function (err, messages) {
     if (err) {
       return res.status(422).send({
         message: errorHandler.getErrorMessage(err)

@@ -1,6 +1,6 @@
 'use strict';
 var mongoose = require('mongoose');
-var chat = mongoose.model('PrivateChatSchema');
+var chat = mongoose.model('MessagesSchema');
 // Create the chat configuration
 module.exports = function (io, socket) {
   // Emit the status event when a new socket client is connected

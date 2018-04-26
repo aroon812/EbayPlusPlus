@@ -16,7 +16,7 @@
       title: '',
       state: 'settings',
       type: 'dropdown',
-      roles: ['user']
+      roles: ['user', 'me']
     });
 
     menuService.addSubMenuItem('account', 'settings', {

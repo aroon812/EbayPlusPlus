@@ -14,10 +14,23 @@
       </div>
     </fieldset>
   </form>
+  <ul class="list-unstyled">
+    <!-- List all messages -->
+    <li id='element' class="col-xs-12 col-md-offset-4 col-md-4 chat-message" ng-repeat="message in vm.olds track by $index">
+        
+            <small class="pull-right text-muted" ng-bind="message.created | date:'mediumTime'"></small>
+            <!-- <img ng-src="/{{message.profileImageURL}}" alt="{{message.username}}" class="pull-left chat-profile-image" /> -->
+             <div class="pull-left chat-message-details">
+               <strong ng-bind="message.username"></strong>
+               <br>
+               <span ng-bind="message.text"></span>  
+             </div>
+    </li>
+  </ul>
 
   <ul class="list-unstyled">
     <!-- List all messages -->
-    <li id='element' class="col-xs-12 col-md-offset-4 col-md-4 chat-message" ng-repeat="message in vm.messages">
+    <li id='element' class="col-xs-12 col-md-offset-4 col-md-4 chat-message" ng-repeat="message in vm.messages track by $index">
         
             <small class="pull-right text-muted" ng-bind="message.created | date:'mediumTime'"></small>
             <!-- <img ng-src="/{{message.profileImageURL}}" alt="{{message.username}}" class="pull-left chat-profile-image" /> -->

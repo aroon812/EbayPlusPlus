@@ -16,7 +16,7 @@
   </form>
   <ul class="list-unstyled">
     <!-- List all messages -->
-    <li id='element' class="col-xs-12 col-md-offset-4 col-md-4 chat-message" ng-repeat="message in vm.olds track by $index">
+    <li id='element' class="col-xs-12 col-md-offset-4 col-md-4 chat-message" ng-repeat="message in vm.olds | messageColor track by $index">
         
             <small class="pull-right text-muted" ng-bind="message.created | date:'mediumTime'"></small>
             <!-- <img ng-src="/{{message.profileImageURL}}" alt="{{message.username}}" class="pull-left chat-profile-image" /> -->
@@ -24,7 +24,8 @@
                <strong ng-bind="message.username"></strong>
                <br>
                <span ng-bind="message.text"></span>  
-             </div>
+
+        </div>
     </li>
   </ul>
 
@@ -41,16 +42,5 @@
              </div>
     </li>
   </ul>
-  <script>
-      var vm = this;
-      var elem = document.getElementById('element');
-      var name = elem.getElementsByTagName('strong');
-      console.log(name);
-      if(name === vm.user.username) {
-          elem.style.backgroundColor = 'rgba(255, 0, 0, 0.2)';
-      }
-      else {
-          elem.style.backgroundColor = 'rgba(0, 0, 255, 0.2)';
-      }
-  </script>
+  
 </section>

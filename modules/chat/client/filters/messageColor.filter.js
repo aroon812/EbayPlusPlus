@@ -8,7 +8,7 @@
 
     function messageColor (message) {
       console.log(user.username);
-      console.log(message.user);
+      console.log(message);
         return function () {
           $( "li#element" ).each(function() {
             

@@ -45,7 +45,6 @@
               text: data[i].message
             };
             vm.olds.push(mes);
-            console.log(vm.olds);
           }
         }
       });

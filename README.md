@@ -26,19 +26,28 @@ Admin User for Heroku Deployment:
 Notes:
 
 The third iteration of the website has added much more functionality. We now have a user page that allows a user to edit their information, as well as keep track of items they have listed, and those they want to bid on. We also now have a working framework for private messaging. We hope to add more functionality and style to the template, but as of now we are returning messages to closed pairs of users. 
+
 Breakdown:
 1. Aaron Thomson:
-    - 
+    - Co-create private messaging 
+    - colorfiltering messages by corresponder
 2. Jared Polonitza:
     - Create User Page
     - Co-create private messaging
     - Update Readme
 3. Braden Ash:
-    - 
+    - working on creating angular slideshow 
+    - working on making buy it now functional
 4. Skye Guegan:
-    - 
+    - Error Correction
+    - Watch Button + Func
+    - Update Item Db to include watchers
+    - Remove items from display that are expired
 5. Lukas Jimenez-Smith
-    - 
+    - New homepage
+    = Css Styling 
+    - New Logo
+    - New tab display picture
 -------------------------------------------------
 Iteration 3.0: https://pacific-dawn-56409.herokuapp.com/
 

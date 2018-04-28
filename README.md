@@ -61,7 +61,7 @@ Notes:
 This second iteration of our mean stack project hosts most of the body for our ebaY++ project. In this tag we are setting up an entire frot end HTML and CSS framework as well as back end features such as bidding, paying, viewing and selling items. - Lukas Jimenez-Smith
 Breakdown:
 1. Aaron Thomson:
-    - 
+    Helped implement user messaging, mostly in the controller, socket server config file, and the view, including a jquery filter on out messages that isn't quite finished yet 
 2. Jared Polonitza:
     - 
 3. Braden Ash:

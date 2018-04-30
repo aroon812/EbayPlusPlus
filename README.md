@@ -45,7 +45,7 @@ Breakdown:
     - Remove items from display that are expired
 5. Lukas Jimenez-Smith
     - New homepage
-    = Css Styling 
+    - Css Styling 
     - New Logo
     - New tab display picture
 -------------------------------------------------

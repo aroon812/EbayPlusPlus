@@ -1,10 +1,10 @@
 -------------------------------------------------
 Iteration 4.0: https://cryptic-reef-71836.herokuapp.com/ 
 
-![alt text](iter3/pics/chatFriends.png)
+![alt text](iter3pics/chatFriends.png)
 ## List of all the people available to chat
 
-![alt text](iter3pics/chatExample.png)
+![alt text](iter3pics/ChatExample.png)
 ## Private chat rooms for two
 
 ![alt text](iter3pics/updatedItemListPage.png)

@@ -50,7 +50,7 @@ body {
 
 .nav {
     background-color: darkslategrey;
-    box-shadow: 0 5px 6px -6px darkslategrey;
+    box-shadow: 0 4px 6px -6px darkslategrey;
     color: ffffff;
     list-style: none;
     margin: 0;
@@ -124,11 +124,38 @@ h1 {
 .welcome {
     font-family: Georgia, Times, 'Times New Roman', serif;
     font-style: bold;
+    font-size: 50px;
+}
+
+.homeimg {
+    -webkit-transform:rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    transform: rotate(90deg);
+    height: 235px;
+    padding-bottom: 0;
+    width: 255px;
+}
+
+.sidetitle {
+    font-family: Georgia, Times, 'Times New Roman', serif;
+    font-style: normal;
+    font-size: 26px;
+    padding: 10px;
 }
 
 .side-bar {
     border-right: 1px solid darkslategray;
     float: left;
+    margin-top: 51px;
+    max-width: 250px;
+    overflow: hidden;
+}
+
+.side-bar2 {
+    border-left: 1px solid darkslategray;
+    float: right;
     margin-top: 51px;
     max-width: 250px;
     overflow: hidden;

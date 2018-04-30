@@ -20,7 +20,11 @@ var MessagesSchema = new Schema({
   user: {
     type: Schema.ObjectId,
     ref: 'User'
-  }
+  },
+  profileImageURL: {
+    type: String,
+    default: '/modules/users/client/img/profile/default.png'
+  },
 });
 
 mongoose.model('MessagesSchema', MessagesSchema);

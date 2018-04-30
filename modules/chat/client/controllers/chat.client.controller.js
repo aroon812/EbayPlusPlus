@@ -42,9 +42,12 @@
           if (x && y || z && w) { 
             var mes = {
               username: data[i].user.displayName,
-              text: data[i].message
+              text: data[i].message,
+              profileImageURL: data[i].profileImageURL
+              //'/modules/users/client/img/profile/uploads/2037f61058318a35e4b19414a7f387e7'
             };
             vm.olds.push(mes);
+            console.log(data[i]);
           }
         }
       });
@@ -83,11 +86,12 @@
         // Emit a 'chatMessage' message event
       Socket.emit('chatMessage', message);
 
+      console.log(Authentication.user);
       var newMessage = new MessageService({
         message: vm.messageText,
-        corresponder: window.location.pathname.split('/')[1]
+        corresponder: window.location.pathname.split('/')[1],
+        profileImageURL: Authentication.user.profileImageURL
       });
-      console.log(newMessage)
       newMessage.$save(function (cid) {
         newMessage._id = cid._id;
       });

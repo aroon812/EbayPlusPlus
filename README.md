@@ -1,22 +1,22 @@
 -------------------------------------------------
 Iteration 4.0: https://cryptic-reef-71836.herokuapp.com/ 
 
-![alt text](iter3/pics/chatFriends)
+![alt text](iter3/pics/chatFriends.png)
 ## List of all the people available to chat
 
-![alt text](iter3pics/chatExample)
+![alt text](iter3pics/chatExample.png)
 ## Private chat rooms for two
 
-![alt text](iter3pics/updatedItemListPage)
+![alt text](iter3pics/updatedItemListPage.png)
 ## Elegant new styling for the items list page
 
-![alt text](iter3pics/listedItemPage)
+![alt text](iter3pics/listedItemPage.png)
 ## Sleek and beautiful listings for individual items
 
-![alt text](iter3pics/newBidFunc)
+![alt text](iter3pics/newBidFunc.png)
 ## NEW FEATURE ALERT: Bidders can no longer win items by bidding lower than previous bids!!! WOW!
 
-![alt text](iter3pics/myItemsPage)
+![alt text](iter3pics/myItemsPage.png)
 ## See all of the items YOU want to buy (and those you want to sell too)!
 
 Admin User for Heroku Deployment:

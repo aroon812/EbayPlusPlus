@@ -10,12 +10,45 @@
   function ChatController($scope, $state, Authentication, Socket, IdService, MessageService) {
     var vm = this;
 
+    //vm.messages = [];
     vm.messageText = '';
-    vm.theMessages = [];
+    vm.messages = [];
     vm.sendMessage = sendMessage;
-    vm.olds =  MessageService.query();
-    console.log(vm.olds);
-    
+    vm.olds = [];
+
+    //This needs to be moved into a aplace where i can still use vm.messages, 
+    //or vm.messages is not the right place to store this data
+
+    vm.oldMessages = MessageService.query();
+    vm.oldMessages.$promise.then(function(data) {
+      IdService.query(function (dat) {
+        vm.users = dat;
+        var fullList = vm.users;
+        var n = vm.users.length;
+        var me = [];
+        for (var i = 0; i < n; i++) {
+          if (fullList[i].username === user.username) {
+            me.push(fullList[i]);
+          }
+        }
+        vm.me = me[0]._id;
+        var n = data.length;
+        console.log(data);
+        for (var i = 0; i < n; i++) {
+          var x = data[i].corresponder === window.location.pathname.split('/')[1];
+          var y = data[i].user._id === vm.me;
+          var z = data[i].corresponder === vm.me;
+          var w = data[i].user._id === window.location.pathname.split('/')[1];
+          if (x && y || z && w) { 
+            var mes = {
+              username: data[i].user.displayName,
+              text: data[i].message
+            };
+            vm.olds.push(mes);
+          }
+        }
+      });
+    });
 
     init();
 
@@ -40,7 +73,6 @@
         Socket.removeListener('chatMessage');
       });
     }
-
       // Create a controller method for sending messages
     function sendMessage() {
         // Create a new message object
@@ -51,19 +83,36 @@
         // Emit a 'chatMessage' message event
       Socket.emit('chatMessage', message);
 
-      vm.newMessage = function () {
-        var newMessage = new MessageService({
-          message: vm.messageText,
-          corresponder: window.location.pathname.split('/')[1]
-        });
-  
-        newMessage.$save(function (data) {
-          newMessage._id = data._id;
-        });
-      };
-
+      var newMessage = new MessageService({
+        message: vm.messageText,
+        corresponder: window.location.pathname.split('/')[1]
+      });
+      console.log(newMessage)
+      newMessage.$save(function (cid) {
+        newMessage._id = cid._id;
+      });
         // Clear the message text
       vm.messageText = '';
     }
   }
 }());
+
+// function save(isValid, mess) {
+//   if (!isValid) {
+//     $scope.$broadcast('show-errors-check-validity', 'mess');
+//     return false;
+//   }
+//   console.log(mess);
+//   // Create a new message, or update the current instance
+//   mess.createOrUpdate()
+//     .then(successCallback)
+//     .catch(errorCallback);
+
+//   function successCallback(res) {// should we send the User to the list or the updated Article's view?
+//     Notification.success({ message: '<i class="glyphicon glyphicon-ok"></i> Item saved successfully!' });
+//   }
+
+//   function errorCallback(res) {
+//     Notification.error({ message: res.data.message, title: '<i class="glyphicon glyphicon-remove"></i> Item save error!' });
+//   }
+// }

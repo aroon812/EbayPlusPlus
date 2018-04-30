@@ -1,4 +1,54 @@
 -------------------------------------------------
+Iteration 4.0: https://cryptic-reef-71836.herokuapp.com/ 
+
+![alt text](iter3/pics/chatFriends)
+## List of all the people available to chat
+
+![alt text](iter3/pics/chatExample)
+## Private chat rooms for two
+
+![alt text](iter3/pics/updatedItemListPage)
+## Elegant new styling for the items list page
+
+![alt text](iter3/pics/listedItemPage)
+## Sleek and beautiful listings for individual items
+
+![alt text](iter3/pics/newBidFunc)
+## NEW FEATURE ALERT: Bidders can no longer win items by bidding lower than previous bids!!! WOW!
+
+![alt text](iter3/pics/myItemsPage)
+## See all of the items YOU want to buy (and those you want to sell too)!
+
+Admin User for Heroku Deployment:
+    Username: itsjustlikeebay
+    Password: Universa1PaperClip$
+
+Notes:
+
+The third iteration of the website has added much more functionality. We now have a user page that allows a user to edit their information, as well as keep track of items they have listed, and those they want to bid on. We also now have a working framework for private messaging. We hope to add more functionality and style to the template, but as of now we are returning messages to closed pairs of users. 
+
+Breakdown:
+1. Aaron Thomson:
+    - Co-create private messaging 
+    - colorfiltering messages by corresponder
+2. Jared Polonitza:
+    - Create User Page
+    - Co-create private messaging
+    - Update Readme
+3. Braden Ash:
+    - working on creating angular slideshow 
+    - working on making buy it now functional
+4. Skye Guegan:
+    - Error Correction
+    - Watch Button + Func
+    - Update Item Db to include watchers
+    - Remove items from display that are expired
+5. Lukas Jimenez-Smith
+    - New homepage
+    = Css Styling 
+    - New Logo
+    - New tab display picture
+-------------------------------------------------
 Iteration 3.0: https://pacific-dawn-56409.herokuapp.com/
 
 ![alt text]()
@@ -11,7 +61,7 @@ Notes:
 This second iteration of our mean stack project hosts most of the body for our ebaY++ project. In this tag we are setting up an entire frot end HTML and CSS framework as well as back end features such as bidding, paying, viewing and selling items. - Lukas Jimenez-Smith
 Breakdown:
 1. Aaron Thomson:
-    - 
+    Helped implement user messaging, mostly in the controller, socket server config file, and the view, including a jquery filter on out messages that isn't quite finished yet 
 2. Jared Polonitza:
     - 
 3. Braden Ash:

@@ -10,16 +10,7 @@
   function menuConfig(menuService) {
     menuService.addMenuItem('topbar', {
       title: 'Items',
-      state: 'items',
-      type: 'dropdown',
-      roles: ['*']
-    });
-
-    // Add the dropdown list item
-    menuService.addSubMenuItem('topbar', 'items', {
-      title: 'List Items',
-      state: 'items.list',
-      roles: ['*']
+      state: 'items.list'
     });
   }
 }());

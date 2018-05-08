@@ -44,6 +44,10 @@ var ItemSchema = new Schema({
     default: Date.now,
     required: 'Item needs removal date'
   },
+  itemImageURL: {
+    type: String,
+    default: '/modules/items/client/img/default.png'
+  },
   lastBid: {
     type: Schema.ObjectId,
     ref: 'User'

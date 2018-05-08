@@ -64,6 +64,9 @@ footer {background: #aaa;color:white;}
         <div class="page-header">
         <h1 ng-bind="vm.item.itemName"></h1>
         </div>
+        <div class="form-group text-center">
+            <img ngf-src="vm.item.itemImageURL" alt="{{vm.user.displayName}}" class="img-thumbnail item-picture" ngf-drop>
+        </div>
 
         <div id= 'itemPageInfo'>
         <label class="itemLabel" for="itemPageInfo">Description</label>

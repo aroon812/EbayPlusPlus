@@ -17,27 +17,22 @@
             <p class="help-block error-text" ng-message="required">Item title is required.</p>
           </div>
         </div>
-
         <div class="form-group">
           <label class="control-label" for="bidPrice">Bid Price</label>
           <textarea name="bidPrice" data-ng-model="vm.item.bidPrice" id="bidPrice" class="form-control" placeholder="Bid Price"></textarea>
         </div>
-
         <div class="form-group">
           <label class="control-label" for="buyPrice">Buy Price</label>
           <textarea name="buyPrice" data-ng-model="vm.item.buyPrice" id="buyPrice" class="form-control" placeholder="Buy Price"></textarea>
         </div>
-
         <div class="form-group">
           <label class="control-label" for="removalDate">Removal Date</label><br />
           <input name="removalDate" data-ng-model="vm.item.removalDate" id="date" type="date">
         </div>
-
         <div class="form-group">
           <label class="control-label" for="content">Description</label>
           <textarea name="itemDetails" data-ng-model="vm.item.itemDetails" id="itemDetails" class="form-control" cols="30" rows="10" placeholder="Content"></textarea>
         </div>
-
         <div class="form-group">
           <button type="submit" class="btn btn-default">{{vm.item._id ? 'Update' : 'Create'}}</button>
         </div>

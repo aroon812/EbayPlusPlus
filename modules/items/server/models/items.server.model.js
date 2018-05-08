@@ -51,7 +51,15 @@ var ItemSchema = new Schema({
   user: {
     type: Schema.ObjectId,
     ref: 'User'
-  }
+  },
+  watchedItems: {
+  type: [String],
+  default: []
+},
+watch: {
+type: String,
+default: "false"
+}
 });
 
 ItemSchema.statics.seed = seed;

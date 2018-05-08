@@ -1,0 +1,24 @@
+<section>
+  <div class="page-header">
+    <h1 ng-bind="vm.item.itemName"></h1>
+  </div>
+        <div class="col-md-12">
+          <form name="vm.form.itemForm" class="form-horizontal" ng-submit="vm.save(vm.form.itemForm.$valid)" novalidate>
+            <fieldset>
+
+              <div class="form-group">
+                <label class="control-label" for="watch">Watch Item</label>
+                <!-- <textarea name="watch" data-ng-model="vm.item.watch" id="watch" class="form-control" placeholder="Watch Item"></textarea> -->
+                <select name="watch" data-ng-model="vm.item.watch" id="watch" class="form-control" placeholder=true>
+                  <option value="true">True</option>
+                  <option value="false">False</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <button type="submit" class="btn btn-default">Submit</button>
+              </div>
+            </fieldset>
+          </form>
+        </div>
+      </section>

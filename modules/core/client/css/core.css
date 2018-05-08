@@ -127,14 +127,14 @@ h1 {
 }
 
 .homeimg {
-    -webkit-transform:rotate(90deg);
-    -moz-transform: rotate(90deg);
-    -ms-transform: rotate(90deg);
-    -o-transform: rotate(90deg);
-    transform: rotate(90deg);
     height: 235px;
     padding-bottom: 0;
-    width: 255px;
+    width: 250px;
+    padding-right: 30px;
+}
+
+.himg {
+    display: middle;
 }
 
 .sidetitle {
@@ -180,7 +180,6 @@ p {
 body {
     margin-bottom:30px;
 }
-
 
 .page {
   margin-top: 100px;

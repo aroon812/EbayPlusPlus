@@ -4,9 +4,11 @@
     </div>
           <div class="col-md-12">
             <form name="vm.form.itemForm" class="form-horizontal" ng-submit="vm.save(vm.form.itemForm.$valid)" novalidate>
-              <fieldset>
-                We are working on this
-              </fieldset>
+              </div>
+              <label class="itemLabel" for="itemPageInfo">Buy Price</label>
+                  <div ng-bind="vm.item.buyPrice | currency"></div>
+              <div>
+              <button> <a href="AAROOON">Purchase </a></button> 
             </form>
           </div>
         </section>

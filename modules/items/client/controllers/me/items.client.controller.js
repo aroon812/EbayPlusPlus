@@ -5,9 +5,9 @@
     .module('items.me')
     .controller('ItemsMeController', ItemsMeController);
 
-  ItemsMeController.$inject = ['$scope', '$state', '$window', 'itemResolve', 'Authentication', 'Notification'];
+  ItemsMeController.$inject = ['$scope', '$state', '$window', 'itemResolve', 'Authentication', 'Notification', 'Upload'];
 
-  function ItemsMeController($scope, $state, $window, item, Authentication, Notification) {
+  function ItemsMeController($scope, $state, $window, item, Authentication, Notification, Upload) {
     var vm = this;
 
     vm.item = item;
@@ -28,6 +28,7 @@
 
     // Save Article
     function save(isValid) {
+      console.log("where am I");
       if (!isValid) {
         $scope.$broadcast('show-errors-check-validity', 'vm.form.itemForm');
         return false;
@@ -39,7 +40,7 @@
         .catch(errorCallback);
 
       function successCallback(res) {
-        $state.go('me.items.list'); // should we send the User to the list or the updated Article's view?
+        $state.go('me.items.addPicture'); // should we send the User to the list or the updated Article's view?
         Notification.success({ message: '<i class="glyphicon glyphicon-ok"></i> Item saved successfully!' });
       }
 

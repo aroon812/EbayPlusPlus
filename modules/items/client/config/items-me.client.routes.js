@@ -35,6 +35,18 @@
           itemResolve: newItem
         }
       })
+      .state('me.items.addPicture', {
+        url: '/:itemId/pic',
+        templateUrl: '/modules/items/client/views/me/picture-item.client.view.html',
+        controller: 'ItemsPictureController',
+        controllerAs: 'vm',
+        data: {
+          roles: ['me']
+        },
+        resolve: {
+          itemResolve: getItem
+        }
+      })
       .state('me.items.watch', {
         url: '/:itemId/watch',
         templateUrl: '/modules/items/client/views/view-item.client.view.html',

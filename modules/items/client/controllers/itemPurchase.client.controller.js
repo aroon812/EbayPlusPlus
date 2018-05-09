@@ -15,6 +15,7 @@
       vm.form = {};
       vm.remove = remove;
       vm.save = save;
+      vm.purchase = purchase;
 
       // Remove existing Article
       function remove() {
@@ -22,6 +23,16 @@
           vm.item.$remove(function () {
             $state.go('items.list');
             Notification.success({ message: '<i class="glyphicon glyphicon-ok"></i> Item deleted successfully!' });
+          });
+        }
+      }
+
+      // buy an item, currently only removes it
+      function purchase() {
+        if ($window.confirm('Are you sure you want to purchase this item?')) {
+          vm.item.$remove(function () {
+            $state.go('items.list');
+            Notification.success({ message: '<i class="glyphicon glyphicon-ok"></i> Item Purchased!' });
           });
         }
       }

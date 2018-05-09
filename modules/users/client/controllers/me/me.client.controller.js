@@ -36,11 +36,11 @@
     function update(isValid) {
       if (!isValid) {
         $scope.$broadcast('show-errors-check-validity', 'vm.userForm');
-
         return false;
       }
 
       var user = vm.user;
+      console.log(user);
 
       user.$update(function () {
         $state.go('me.user', {

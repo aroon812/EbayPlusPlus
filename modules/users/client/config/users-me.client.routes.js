@@ -43,7 +43,7 @@
       .state('me.user-payment', {
         url: 'users/:userId/editPayment',
         templateUrl: '/modules/users/client/views/me/users.client.paymentView.html',
-        controller: 'PaymentController',
+        controller: 'MeController',
         controllerAs: 'vm',
         resolve: {
           userResolve: getUser

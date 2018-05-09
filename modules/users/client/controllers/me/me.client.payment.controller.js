@@ -36,17 +36,16 @@
     function update(isValid) {
       if (!isValid) {
         $scope.$broadcast('show-errors-check-validity', 'vm.userForm');
-
         return false;
       }
 
-      var user = vm.user;
+      var u = vm.user;
+      console.log(u.card);
 
-      user.$update(function () {
-        $state.go('me.user', {
-          userId: user._id
+      u.$update(function () {
+        $state.go('items.list', {
+          userId: u._id
         });
-        console.log(user.card);
         Notification.success({ message: '<i class="glyphicon glyphicon-ok"></i> Updated successfully!' });
       }, function (errorResponse) {
         Notification.error({ message: errorResponse.data.message, title: '<i class="glyphicon glyphicon-remove"></i> User update error!' });

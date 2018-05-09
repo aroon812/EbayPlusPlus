@@ -46,6 +46,7 @@
         $state.go('me.user', {
           userId: user._id
         });
+        console.log(user.card);
         Notification.success({ message: '<i class="glyphicon glyphicon-ok"></i> Updated successfully!' });
       }, function (errorResponse) {
         Notification.error({ message: errorResponse.data.message, title: '<i class="glyphicon glyphicon-remove"></i> User update error!' });

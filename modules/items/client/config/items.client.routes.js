@@ -57,6 +57,19 @@
         resolve: {
           itemResolve: getItem
         }
+      })
+      .state('items.watch', {
+        url: '/:itemId/watch',
+        templateUrl: '/modules/items/client/views/watch-view.html',
+        controller: 'ItemsPurchaseController',
+        controllerAs: 'vm',
+        data: {
+          roles: ['admin', 'me'],
+          pageTitle: '{{ itemResolve.itemName }}'
+        },
+        resolve: {
+          itemResolve: getItem
+        }
       });
   }
 

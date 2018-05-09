@@ -67,16 +67,17 @@ exports.read = function (req, res) {
  */
 exports.update = function (req, res) {
   var item = req.item;
-
-
-  if (req.body.bidPrice > req.item.bidPrice) {
+if (req.body.bidPrice > req.item.bidPrice || req.body.watch==="true") {
     item.itemName = req.body.itemName;
     item.bidPrice = req.body.bidPrice;
     item.lastBid = req.user;
     item.buyPrice = req.body.buyPrice;
     item.itemDetails = req.body.itemDetails;
     item.removalDate = req.body.removalDate;
-
+    if(item.watchedItems.includes(req.user.username)===false){
+    req.item.watchedItems.push(req.user.username);
+    item.watchedItems=req.item.watchedItems;
+  }
     item.save(function (err) {
       if (err) {
         return res.status(422).send({
@@ -86,6 +87,22 @@ exports.update = function (req, res) {
         res.json(item);
       }
     });
+}else if (req.body.bidPrice > req.item.bidPrice && req.body.watch==="false") {
+    item.itemName = req.body.itemName;
+    item.bidPrice = req.body.bidPrice;
+    item.lastBid = req.user;
+    item.buyPrice = req.body.buyPrice;
+    item.itemDetails = req.body.itemDetails;
+    item.removalDate = req.body.removalDate;
+        item.save(function (err) {
+          if (err) {
+            return res.status(422).send({
+              message: errorHandler.getErrorMessage(err)
+            });
+          } else {
+            res.json(item);
+          }
+        });
   } else {
     return res.status(422).send({
       message: 'Bid needs to be larger than previous bid'

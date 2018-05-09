@@ -44,6 +44,7 @@
                 //'/modules/users/client/img/profile/uploads/2037f61058318a35e4b19414a7f387e7'
               };
               vm.messages.unshift(mes);
+
             }
           }
         });

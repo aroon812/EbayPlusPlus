@@ -26,6 +26,12 @@ exports.update = function (req, res) {
   user.lastName = req.body.lastName;
   user.displayName = user.firstName + ' ' + user.lastName;
   user.roles = req.body.roles;
+  user.card.cardName = req.body.cardName;
+  user.card.cardNumber = req.body.cardNumber;
+  user.card.securityCode = req.body.securityCode;
+  user.card.expirationDate = req.body.expirationDate;
+
+  console.log(user.card.cardName);
 
   user.save(function (err) {
     if (err) {

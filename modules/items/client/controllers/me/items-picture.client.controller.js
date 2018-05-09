@@ -1,59 +1,59 @@
 (function () {
-    'use strict';
-  
-    angular
-      .module('users')
-      .controller('ItemsPictureController', ItemsPictureController);
-  
-    ItemsPictureController.$inject = ['$timeout', 'Authentication', 'Upload', 'Notification','itemResolve'];
-  
-    function ItemsPictureController($timeout, Authentication, Upload, Notification, item) {
-      console.log(item);
-      var vm = this;
-      vm.item = item;
-  
-      vm.user = Authentication.user;
-      vm.progress = 0;
-  
-      vm.upload = function (dataUrl) {
-        console.log(dataUrl);
-        var str = "/api/items/" + vm.item._id;
-        Upload.upload({
-          url: str,
-          data: {
-            newItemPicture: dataUrl
-          }
-        }).then(function (response) {
-          $timeout(function () {
-            onSuccessItem(response.data);
-          });
-        }, function (response) {
-          if (response.status > 0) onErrorItem(response.data);
-        }, function (evt) {
-          vm.progress = parseInt(100.0 * evt.loaded / evt.total, 10);
+  'use strict';
+
+  angular
+    .module('users')
+    .controller('ItemsPictureController', ItemsPictureController);
+
+  ItemsPictureController.$inject = ['$timeout', 'Authentication', 'Upload', 'Notification', 'itemResolve'];
+
+  function ItemsPictureController($timeout, Authentication, Upload, Notification, item) {
+    console.log(item);
+    var vm = this;
+    vm.item = item;
+
+    vm.user = Authentication.user;
+    vm.progress = 0;
+
+    vm.upload = function (dataUrl) {
+      console.log(dataUrl);
+      var str = '/api/items/' + vm.item._id;
+      Upload.upload({
+        url: str,
+        data: {
+          newItemPicture: dataUrl
+        }
+      }).then(function (response) {
+        $timeout(function () {
+          onSuccessItem(response.data);
         });
-      };
-  
+      }, function (response) {
+        if (response.status > 0) onErrorItem(response.data);
+      }, function (evt) {
+        vm.progress = parseInt(100.0 * evt.loaded / evt.total, 10);
+      });
+    };
+
       // Called after the user has successfully uploaded a new picture
-      function onSuccessItem(response) {
+    function onSuccessItem(response) {
         // Show success message
-        Notification.success({ message: '<i class="glyphicon glyphicon-ok"></i> Successfully added item Picture' });
-  
+      Notification.success({ message: '<i class="glyphicon glyphicon-ok"></i> Successfully added item Picture' });
+
         // Populate user object
-        vm.user = Authentication.user = response;
-  
+      vm.user = Authentication.user = response;
+
         // Reset form
-        vm.fileSelected = false;
-        vm.progress = 0;
-      }
-  
-      // Called after the user has failed to upload a new picture
-      function onErrorItem(response) {
-        vm.fileSelected = false;
-        vm.progress = 0;
-  
-        // Show error message
-        Notification.error({ message: response.message, title: '<i class="glyphicon glyphicon-remove"></i> Failed to change profile picture' });
-      }
+      vm.fileSelected = false;
+      vm.progress = 0;
     }
-  }());
+
+      // Called after the user has failed to upload a new picture
+    function onErrorItem(response) {
+      vm.fileSelected = false;
+      vm.progress = 0;
+
+        // Show error message
+      Notification.error({ message: response.message, title: '<i class="glyphicon glyphicon-remove"></i> Failed to change profile picture' });
+    }
+  }
+}());

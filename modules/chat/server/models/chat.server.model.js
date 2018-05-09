@@ -12,7 +12,7 @@ var mongoose = require('mongoose'),
  *  Private Chat schema
  */
 var MessagesSchema = new Schema({
-  message : String,
+  message: String,
   corresponder: {
     type: String,
     required: 'can\'t send a message to no one'
@@ -24,12 +24,12 @@ var MessagesSchema = new Schema({
   profileImageURL: {
     type: String,
     default: '/modules/users/client/img/profile/default.png'
-  },
+  }
 });
 
 mongoose.model('MessagesSchema', MessagesSchema);
 
 return {
-    name: 'Messages',
-    schema: MessagesSchema
+  name: 'Messages',
+  schema: MessagesSchema
 };

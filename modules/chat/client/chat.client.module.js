@@ -5,5 +5,5 @@
   app.registerModule('id', ['core']);
   app.registerModule('chat.routes', ['ui.router', 'core.routes']);
   app.registerModule('chat.service.messages');
-  app.registerModule('chat.filters.messageFilter')
+  app.registerModule('chat.filters.messageFilter');
 }(ApplicationConfiguration));

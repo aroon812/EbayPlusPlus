@@ -58,6 +58,19 @@
           itemResolve: getItem
         }
       })
+      .state('items.purchased', {
+        url: '/:itemId/buy/purchased',
+        templateUrl: '/modules/items/client/views/purchased-view.html',
+        controller: 'ItemsPurchaseController',
+        controllerAs: 'vm',
+        data: {
+          roles: ['admin', 'me'],
+          pageTitle: 'Thank You!'
+        },
+        resolve: {
+          itemResolve: getItem
+        }
+      })
       .state('items.watch', {
         url: '/:itemId/watch',
         templateUrl: '/modules/items/client/views/watch-view.html',

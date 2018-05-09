@@ -14,16 +14,16 @@ var path = require('path'),
   amazonS3URI = require('amazon-s3-uri'),
   config = require(path.resolve('./config/config'));
 
-  var whitelistedFields = ['firstName', 'lastName', 'email', 'username'];
+var whitelistedFields = ['firstName', 'lastName', 'email', 'username'];
 
-  var useS3Storage = config.uploads.storage === 's3' && config.aws.s3;
-  var s3;
+var useS3Storage = config.uploads.storage === 's3' && config.aws.s3;
+var s3;
 
-  if (useS3Storage) {
-    aws.config.update({
-      accessKeyId: config.aws.s3.accessKeyId,
-      secretAccessKey: config.aws.s3.secretAccessKey
-    });
+if (useS3Storage) {
+  aws.config.update({
+    accessKeyId: config.aws.s3.accessKeyId,
+    secretAccessKey: config.aws.s3.secretAccessKey
+  });
 
   s3 = new aws.S3();
 }
@@ -67,17 +67,14 @@ exports.read = function (req, res) {
  */
 exports.update = function (req, res) {
   var item = req.item;
-if (req.body.bidPrice > req.item.bidPrice || req.body.watch==="true") {
+  if (req.body.bidPrice > req.item.bidPrice) {
     item.itemName = req.body.itemName;
     item.bidPrice = req.body.bidPrice;
     item.lastBid = req.user;
     item.buyPrice = req.body.buyPrice;
     item.itemDetails = req.body.itemDetails;
     item.removalDate = req.body.removalDate;
-    if(item.watchedItems.includes(req.user.username)===false){
-    req.item.watchedItems.push(req.user.username);
-    item.watchedItems=req.item.watchedItems;
-  }
+
     item.save(function (err) {
       if (err) {
         return res.status(422).send({
@@ -87,22 +84,34 @@ if (req.body.bidPrice > req.item.bidPrice || req.body.watch==="true") {
         res.json(item);
       }
     });
-}else if (req.body.bidPrice > req.item.bidPrice && req.body.watch==="false") {
-    item.itemName = req.body.itemName;
-    item.bidPrice = req.body.bidPrice;
-    item.lastBid = req.user;
-    item.buyPrice = req.body.buyPrice;
-    item.itemDetails = req.body.itemDetails;
-    item.removalDate = req.body.removalDate;
-        item.save(function (err) {
-          if (err) {
-            return res.status(422).send({
-              message: errorHandler.getErrorMessage(err)
-            });
-          } else {
-            res.json(item);
-          }
+  } else if (req.body.watch === 'true') {
+    if (item.watchedItems.includes(req.user.username) === false) {
+      req.item.watchedItems.push(req.user.username);
+      item.watchedItems = req.item.watchedItems;
+    }
+    item.save(function (err) {
+      if (err) {
+        return res.status(422).send({
+          message: errorHandler.getErrorMessage(err)
         });
+      } else {
+        res.json(item);
+      }
+    });
+  } else if (req.body.watch === 'false') {
+    if (item.watchedItems.includes(req.user.username) === true) {
+      req.item.watchedItems.remove(req.user.username);
+      item.watchedItems = req.item.watchedItems;
+    }
+    item.save(function (err) {
+      if (err) {
+        return res.status(422).send({
+          message: errorHandler.getErrorMessage(err)
+        });
+      } else {
+        res.json(item);
+      }
+    });
   } else {
     return res.status(422).send({
       message: 'Bid needs to be larger than previous bid'
@@ -288,4 +297,4 @@ exports.addItemPicture = function (req, res) {
       }
     });
   }
-}
+};

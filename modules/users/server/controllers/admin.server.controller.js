@@ -20,8 +20,6 @@ exports.read = function (req, res) {
  */
 exports.update = function (req, res) {
   var user = req.model;
-  console.log(req.model);
-  console.log(req.body);
 
   // For security purposes only merge these parameters
   user.firstName = req.body.firstName;

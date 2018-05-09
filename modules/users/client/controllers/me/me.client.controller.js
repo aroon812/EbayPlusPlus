@@ -40,7 +40,6 @@
       }
 
       var user = vm.user;
-      console.log(user);
 
       user.$update(function () {
         $state.go('me.user', {

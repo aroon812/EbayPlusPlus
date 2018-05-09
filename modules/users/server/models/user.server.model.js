@@ -112,22 +112,22 @@ var UserSchema = new Schema({
     default: ['user', 'me'],
     required: 'Please provide at least one role'
   },
-    cardName:{
-      type: String,
-      default: ''
-    },
-    cardNumber:{
-      type: Number,
-      default: '0000000000000000'
-    },
-    securityCode:{
-      type: Number,
-      default: '000'
-    },
-    expirationDate:{
-      type: Date,
-      default: Date.now
-    },
+  cardName:{
+    type: String,
+    default: ''
+  },
+  cardNumber:{
+    type: Number,
+    default: '0000000000000000'
+  },
+  securityCode:{
+    type: Number,
+    default: '000'
+  },
+  expirationDate:{
+    type: Date,
+    default: Date.now
+  },
   updated: {
     type: Date
   },

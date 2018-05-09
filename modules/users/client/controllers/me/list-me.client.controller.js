@@ -13,22 +13,6 @@
     vm.figureOutItemsToDisplay = figureOutItemsToDisplay;
     vm.pageChanged = pageChanged;
 
-    // findId();
-
-    // function findId() {
-    //   console.log(user);
-    //   Users.findOne({
-    //     username: vm.user.username
-    //   }).exec(function(err, res) {
-    //     if (err) return next(err);
-    //     if (!user) return next(new Error('Failed'));
-    //     res.json(user);
-    //     next();
-    //   });
-    //   console.log(res);
-    //   vm.me = res;
-    // }
-
     IdService.query(function (data) {
       vm.users = data;
       vm.buildPager();

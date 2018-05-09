@@ -184,3 +184,9 @@ body {
 .page {
   margin-top: 100px;
 }
+
+.itempic {
+    display: inline-block;
+    height: 90px;
+    width: 150px;
+}

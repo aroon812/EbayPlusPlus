@@ -23,7 +23,7 @@
           }
         }
         vm.me = me;
-        vm.me = vm.me[0]._id;
+        vm.me = me[0]._id;
 
         var myItems = [];
         var m = itemHolder.length;

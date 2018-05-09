@@ -68,7 +68,6 @@ exports.read = function (req, res) {
 exports.update = function (req, res) {
   var item = req.item;
   if (req.body.bidPrice > req.item.bidPrice) {
-    req.body.bidPrice > req.item.bidPrice
     item.itemName = req.body.itemName;
     item.bidPrice = req.body.bidPrice;
     item.lastBid = req.user;
@@ -86,10 +85,10 @@ exports.update = function (req, res) {
       }
     });
   } else if (req.body.watch === 'true') {
-        if (item.watchedItems.includes(req.user.username) === false) {
-          req.item.watchedItems.push(req.user.username);
-          item.watchedItems = req.item.watchedItems;
-        }
+    if (item.watchedItems.includes(req.user.username) === false) {
+      req.item.watchedItems.push(req.user.username);
+      item.watchedItems = req.item.watchedItems;
+    }
     item.save(function (err) {
       if (err) {
         return res.status(422).send({
@@ -99,7 +98,7 @@ exports.update = function (req, res) {
         res.json(item);
       }
     });
-  }else if (req.body.watch === 'false') {
+  } else if (req.body.watch === 'false') {
     if (item.watchedItems.includes(req.user.username) === true) {
       req.item.watchedItems.remove(req.user.username);
       item.watchedItems = req.item.watchedItems;

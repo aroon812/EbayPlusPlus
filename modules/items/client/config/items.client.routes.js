@@ -65,7 +65,7 @@
         controllerAs: 'vm',
         data: {
           roles: ['admin', 'me'],
-          pageTitle: "Thank You!"
+          pageTitle: 'Thank You!'
         },
         resolve: {
           itemResolve: getItem

@@ -28,7 +28,6 @@
 
     // Save Article
     function save(isValid) {
-      console.log("where am I");
       if (!isValid) {
         $scope.$broadcast('show-errors-check-validity', 'vm.form.itemForm');
         return false;

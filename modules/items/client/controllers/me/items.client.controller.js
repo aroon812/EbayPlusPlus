@@ -26,12 +26,12 @@
       }
     }
 
-    $scope.goToPic = function() {
+    $scope.goToPic = function () {
       console.log(vm.item._id);
       $state.go('me.items.addPicture', {
         itemId: vm.item._id
       });
-    }
+    };
 
     // Save Article
     function save(isValid) {

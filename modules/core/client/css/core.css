@@ -122,15 +122,15 @@ h1 {
 }
 .welcome {
     font-family: Georgia, Times, 'Times New Roman', serif;
-    font-style: bold;
     font-size: 50px;
+    font-style: bold;
 }
 
 .homeimg {
     height: 235px;
     padding-bottom: 0;
-    width: 250px;
     padding-right: 30px;
+    width: 250px;
 }
 
 .himg {
@@ -139,8 +139,8 @@ h1 {
 
 .sidetitle {
     font-family: Georgia, Times, 'Times New Roman', serif;
-    font-style: normal;
     font-size: 26px;
+    font-style: normal;
     padding: 10px;
 }
 

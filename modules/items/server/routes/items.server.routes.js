@@ -18,7 +18,7 @@ module.exports = function (app) {
     .put(items.update)
     .post(items.addItemPicture)
     .delete(items.delete);
-    
+
   // Finish by binding the item middleware
   app.param('itemId', items.itemByID);
 };

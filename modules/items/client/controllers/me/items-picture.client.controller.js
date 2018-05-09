@@ -8,6 +8,7 @@
     ItemsPictureController.$inject = ['$timeout', 'Authentication', 'Upload', 'Notification','itemResolve'];
   
     function ItemsPictureController($timeout, Authentication, Upload, Notification, item) {
+      console.log(item);
       var vm = this;
       vm.item = item;
   

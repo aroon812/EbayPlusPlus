@@ -26,6 +26,13 @@
       }
     }
 
+    $scope.goToPic = function() {
+      console.log(vm.item._id);
+      $state.go('me.items.addPicture', {
+        itemId: vm.item._id
+      });
+    }
+
     // Save Article
     function save(isValid) {
       console.log("where am I");
@@ -40,7 +47,7 @@
         .catch(errorCallback);
 
       function successCallback(res) {
-        $state.go('me.items.addPicture'); // should we send the User to the list or the updated Article's view?
+         // should we send the User to the list or the updated Article's view?
         Notification.success({ message: '<i class="glyphicon glyphicon-ok"></i> Item saved successfully!' });
       }
 

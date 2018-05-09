@@ -1,6 +1,6 @@
 <section>
   <div class="page-header">
-    <h1>{{vm.item._id ? 'Edit Item' : 'New Item'}}</h1>
+    <h1>New Item</h1>
   </div>
   <div class="pull-right">
     <a ng-show="vm.item._id" class="btn btn-primary" ng-click="vm.remove()">
@@ -34,7 +34,7 @@
           <textarea name="itemDetails" data-ng-model="vm.item.itemDetails" id="itemDetails" class="form-control" cols="30" rows="10" placeholder="Content"></textarea>
         </div>
         <div class="form-group">
-          <button type="submit" class="btn btn-default">{{vm.item._id ? 'Update' : 'Create'}}</button>
+          <button ng-click="goToPic()" type="submit" class="btn btn-default">{{vm.item._id ? 'Add Picture' : 'Create'}}</button>
         </div>
       </fieldset>
     </form>

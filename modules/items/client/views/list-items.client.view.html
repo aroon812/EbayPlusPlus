@@ -16,6 +16,9 @@
       <div>
         <span ng-bind="item.itemName"></span>
       </div>
+      <div class="pull-right">
+          <img class="itempic"ngf-src="item.itemImageURL" class="img-thumbnail item-picture" ngf-drop>
+        </div>
       <small class="list-group-item-text">
         &nbsp;
         <ul class="pull-middle">
@@ -32,11 +35,6 @@
         Buy Price:
         <span ng-bind="item.buyPrice | currency"></span>
         &nbsp;
-      </ul>
-      <ul class="pull-right">
-        <div class="form-group text-center">
-          <img ngf-src="item.itemImageURL" class="img-thumbnail item-picture" ngf-drop>
-        </div>
       </ul>
       </small>
     </a>

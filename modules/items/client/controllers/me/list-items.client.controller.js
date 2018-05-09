@@ -53,7 +53,7 @@
         var watchedItems = [];
         var m = itemHolder.length;
         for (var j = 0; j < m; j++) {
-          if (itemHolder[j].lastBid === vm.me) {
+          if (itemHolder[j].lastBid === vm.me || itemHolder[j].watchedItems.includes(user.username)) {
             watchedItems.push(itemHolder[j]);
           }
         }

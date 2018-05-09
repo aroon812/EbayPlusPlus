@@ -62,7 +62,7 @@ var ItemSchema = new Schema({
   },
   watch: {
     type: String,
-    default: 'false'
+    default: ''
   }
 });
 

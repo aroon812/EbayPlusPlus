@@ -1,4 +1,40 @@
 -------------------------------------------------
+Iteration 5.0: https://cryptic-reef-71836.herokuapp.com/ 
+
+%change this to match your new file
+![alt text](iter3pics/chatFriends.png)
+## List of all the people available to chat
+
+
+Admin User for Heroku Deployment:
+    Username: itsjustlikeebay
+    Password: Universa1PaperClip$
+
+Notes:
+
+The final iteration of our website has gotten us very close to the ideas we had at the outset. We have peer to peer messaging, and we have a way for people to buy, sell, and auction goods. There is a user page that gives all the needed info that one would expect for a good shopping experience
+
+Breakdown:
+1. Aaron Thomson:
+    - Co-create private messaging 
+    - colorfiltering messages by corresponder
+2. Jared Polonitza:
+    - Images on items
+    - Credit cards saved in database
+3. Braden Ash:
+    - working on creating angular slideshow 
+    - working on making buy it now functional
+4. Skye Guegan:
+    - Error Correction
+    - Watch Button + Func
+    - Update Item Db to include watchers
+    - Remove items from display that are expired
+5. Lukas Jimenez-Smith
+    - New homepage
+    - Css Styling 
+    - New Logo
+    - New tab display picture
+-------------------------------------------------
 Iteration 4.0: https://cryptic-reef-71836.herokuapp.com/ 
 
 ![alt text](iter3pics/chatFriends.png)

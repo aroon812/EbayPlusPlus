@@ -156,6 +156,28 @@ UserSchema.pre('save', function (next) {
   next();
 });
 
+
+UserSchema.pre('save', function (next) {
+  if (this.cardNumber && this.isModified('cardNumber')) {
+    this.salt = crypto.randomBytes(16).toString('base64');
+    this.cardNumber = this.hashCardNumber(this.cardNumber);
+  }
+
+  next();
+});
+
+/*
+UserSchema.pre('save', function (next) {
+  if (this.securityCode && this.isModified('securityCode')) {
+    this.salt = crypto.randomBytes(16).toString('base64');
+    this.securityCode = this.hashSecurityCode(this.securityCode);
+  }
+  
+
+  next();
+});
+*/
+
 /**
  * Hook a pre validate method to test the local password
  */
@@ -181,6 +203,28 @@ UserSchema.methods.hashPassword = function (password) {
     return password;
   }
 };
+
+//hash the credit card number
+
+UserSchema.methods.hashCardNumber = function (cardNumber) {
+  if (this.salt && cardNumber) {
+    return crypto.pbkdf2Sync(cardNumber, new Buffer(this.salt, 'base64'), 10000, 64, 'SHA1').toString('base64');
+  } else {
+    return cardNumber;
+  }
+};
+
+/*
+UserSchema.methods.hashSecurityCode = function (securityCode) {
+  if (this.salt && securityCode) {
+    return crypto.pbkdf2Sync(securityCode, new Buffer(this.salt, 'base64'), 10000, 64, 'SHA1').toString('base64');
+  } else {
+    return securityCode;
+  }
+};
+*/
+
+
 
 /**
  * Create instance method for authenticating user

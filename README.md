@@ -30,9 +30,9 @@ Breakdown:
 3. Braden Ash:
     ?
 4. Skye Guegan:
-- Error Correction
-- Completed Watch Button + Func
-- Added Watched items to Manage My Items Page
+    - Error Correction
+    - Completed Watch Button + Func
+    - Added Watched items to Manage My Items Page
 5. Lukas Jimenez-Smith
     ?
 -------------------------------------------------
@@ -79,7 +79,6 @@ Breakdown:
     - Error Correction
     - Watch Button + Func
     - Update Item Db to include watchers
-    - Remove items from display that are expired
 5. Lukas Jimenez-Smith
     - New homepage
     - Css Styling
@@ -104,7 +103,8 @@ Breakdown:
 3. Braden Ash:
     -
 4. Skye Guegan:
-    -
+    - Set up Removal Date
+    - Remove items from display that are expired
 5. Lukas Jimenez-Smith
     - Update readme
     - Finish CSS and HTML for website
@@ -129,7 +129,7 @@ Breakdown:
 3. Braden Ash:
     -
 4. Skye Guegan:
-    -
+    - Set up bidding
 5. Lukas Jimenez-Smith
     - Update README
     - Item Framewok in HTML with picture

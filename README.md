@@ -17,7 +17,7 @@ Admin User for Heroku Deployment:
 
 Notes:
 
-The final iteration of our website has gotten us very close to the ideas we had at the outset. We have peer to peer messaging, and we have a way for people to buy, sell, and auction goods. There is a user page that gives all the needed info that one would expect for a good shopping experience
+The final iteration of our website has gotten us very close to the ideas we had at the outset. We have peer to peer messaging, and we have a way for people to buy, sell, and auction goods. There is a user page that gives all the needed info that one would expect for a good shopping experience. In addition, buy it now now removes items from the items list.
 
 Breakdown:
 1. Aaron Thomson:

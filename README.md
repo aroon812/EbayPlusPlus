@@ -28,13 +28,15 @@ Breakdown:
     - Images on items
     - Credit cards saved in database
 3. Braden Ash:
-    ?
+    - Attempted to implement slideshow on homepage using angular
+    - Minor bug fixes
 4. Skye Guegan:
     - Error Correction
     - Completed Watch Button + Func
     - Added Watched items to Manage My Items Page
 5. Lukas Jimenez-Smith
-    ?
+    - Worked on homepage
+    - Finalized all html and css for this project
 -------------------------------------------------
 Iteration 4.0: https://cryptic-reef-71836.herokuapp.com/
 
